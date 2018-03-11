@@ -6,8 +6,47 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Splash Screen/Splash Screen.unity
+    path: 
     guid: 6f552c9b00a5e9340a340367d0810948
   - enabled: 1
     path: Assets/Main Menu.unity
     guid: 7cf9b1423389e1d46b1164ab17887dce
+  - enabled: 1
+    path: Assets/Splash Screen.unity
+    guid: 28bfd854281976140924e0b1caea0fa0
+  - enabled: 1
+    path: Assets/Level Select.unity
+    guid: 06b279b2ae2e8714ca13005a493836f2
+  - enabled: 1
+    path: Assets/level001.unity
+    guid: 838326fcbe92edf4983f80808a96b314
+  - enabled: 1
+    path: Assets/level002.unity
+    guid: 894cee0f93e12214aa125d96cdebd866
+  - enabled: 1
+    path: Assets/Pause Menu.unity
+    guid: 59ec7e36aeed4284095a0ff7c4dfc17a
+  - enabled: 1
+    path: Assets/level003.unity
+    guid: ad4c1c3885c782c44b5d0e53010d9393
+  - enabled: 1
+    path: Assets/level004.unity
+    guid: aa93e61c6b83d8a45a1ef3455524247e
+  - enabled: 1
+    path: Assets/level005.unity
+    guid: 2f58160e69f7372449d83886462a6832
+  - enabled: 1
+    path: Assets/level006.unity
+    guid: 1d8ec52b2d4c4ea499ba5eac70c60cc8
+  - enabled: 1
+    path: Assets/level007.unity
+    guid: 3ea53afc274d36d4789fb6843a8bdff1
+  - enabled: 1
+    path: Assets/level008.unity
+    guid: a9b893d8f8c93d142b48643fdfde5d0d
+  - enabled: 1
+    path: Assets/level009.unity
+    guid: 147fe5205082332479dbe30b6ab2576e
+  - enabled: 1
+    path: Assets/level010.unity
+    guid: cc3c97c2d6f27ff4b942116e0806de6b
