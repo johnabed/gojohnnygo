@@ -633,9 +633,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 610e3eb7-6c6b-4dbd-8f2a-b80fd8ee2bbb
+  cloudProjectId: 1a9585f3-1d6d-48f4-afc2-7f25957e8240
   projectName: Go Johnny Go
-  organizationId: lpatel
+  organizationId: johnabed
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
