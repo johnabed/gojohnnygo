@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\PauseMenu.cs" />
+     <Compile Include="Assets\ShopControlScript.cs" />
      <Compile Include="Assets\Splash Screen\BlinkTMP.cs" />
      <Compile Include="Assets\Splash Screen\KeyPress.cs" />
      <Compile Include="Assets\Splash Screen\Simple UI\Samples\IconPreview.cs" />
