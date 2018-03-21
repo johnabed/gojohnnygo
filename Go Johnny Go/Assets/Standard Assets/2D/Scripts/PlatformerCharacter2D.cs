@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace UnityStandardAssets._2D
@@ -19,6 +20,11 @@ namespace UnityStandardAssets._2D
         private Animator m_Anim;            // Reference to the player's animator component.
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+        public int health = 10;
+        public float knockback;
+        public float knockbackLength;
+        public float knockbackCount;
+        public bool knockFromRight;
 
         private void Awake()
         {
@@ -73,9 +79,22 @@ namespace UnityStandardAssets._2D
                 // The Speed animator parameter is set to the absolute value of the horizontal input.
                 m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
-                // Move the character
-                m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed, m_Rigidbody2D.velocity.y);
-
+                if (knockbackCount <= 0)
+                {
+                    // Move the character
+                    m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
+                }
+                else
+                {
+                    if (knockFromRight)
+                    {
+                        m_Rigidbody2D.velocity = new Vector2(-knockback, knockback);
+                    } if (!knockFromRight)
+                    {
+                        m_Rigidbody2D.velocity = new Vector2(knockback, knockback);
+                    }
+                    knockbackCount -= Time.deltaTime;
+                }
                 // If the input is moving the player right and the player is facing left...
                 if (move > 0 && !m_FacingRight)
                 {
