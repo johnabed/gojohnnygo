@@ -4,6 +4,7 @@ public class LevelSelector : MonoBehaviour {
 
     public SceneFader fader;
     public Button[] levelButtons;
+    public Sprite sprite1;
 
     void Start()
     {
@@ -12,6 +13,8 @@ public class LevelSelector : MonoBehaviour {
         {
             if (i + 1 > levelReached)
             {
+                levelButtons[i].image.overrideSprite = sprite1;
+                levelButtons[i].GetComponentInChildren<Text>().text = "";
                 levelButtons[i].interactable = false;
             }
         }
