@@ -50,3 +50,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/level010.unity
     guid: cc3c97c2d6f27ff4b942116e0806de6b
+  - enabled: 1
+    path: Assets/game.unity
+    guid: b744f4a67074d47ac887c1a687f6d2b1
+  - enabled: 1
+    path: Assets/Shop Screen.unity
+    guid: 4c8b6d20a3eb64d928536cafc1cf5dd6

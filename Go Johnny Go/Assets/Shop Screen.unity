@@ -938,7 +938,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: QuitGame
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2702,15 +2702,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1218507665}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9a1d3ce69d8b495eb2bf62ac00f1671, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ae2d8d13ab44eada60ecdb1575fe12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   coinsText: {fileID: 1596817198}
   buyButton: {fileID: 472678614}
   amountText: {fileID: 1687897035}
   buyText: {fileID: 649491044}
-  coins: 0
   price: 0
+  backButton: {fileID: 441729232}
 --- !u!1 &1247522515
 GameObject:
   m_ObjectHideFlags: 0
