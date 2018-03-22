@@ -19,7 +19,7 @@ public class ZombieBehaviour : MonoBehaviour {
 	private float attackRange;
 	private Animator animator;
 
-	private void Awake()
+	private void Start()
 	{
 		animator = GetComponent<Animator> ();
 
@@ -28,10 +28,12 @@ public class ZombieBehaviour : MonoBehaviour {
 		} else {
 			attackRange = 2;
 		}
+		animator.SetBool ("isWalking", true);
 	}
 		
 	// Update is called once per frame
 	void FixedUpdate () {
+
 		// Distance between the 2 stoppers
 		dist1 = Vector3.Distance (stopperA.transform.position, transform.position);
 		dist2 = Vector3.Distance (stopperB.transform.position, transform.position);
@@ -40,14 +42,13 @@ public class ZombieBehaviour : MonoBehaviour {
 		dist = Player.transform.position.x - transform.position.x;
 
 		// Run walking animation if player is far away
-		if(Math.Abs(dist) > 2.5 && timeBetweenAttacks < 2.5)
+		if(Math.Abs(dist) > 2 && timeBetweenAttacks < 1.25)
 		{
-			animator.SetTrigger ("walk");
 			walk = true;
 		}
 
 		// Run attack animation if player is close
-		else if (Math.Abs(dist) < 2.5 && timeBetweenAttacks > 2.5)
+		else if (Math.Abs(dist) < 2 && timeBetweenAttacks > 1.25)
 		{
 			animator.SetTrigger ("skill_1");
 			timeBetweenAttacks = 0.0f;
@@ -58,7 +59,7 @@ public class ZombieBehaviour : MonoBehaviour {
 		timeBetweenAttacks += Time.deltaTime;
 
 		// Walk if player is not in range of attack
-		if (walk == true) {
+		if (walk == true && timeBetweenAttacks > 1.25) {
 			// Change direction of the zombie when it reaches the end of the platform
 			if (dist1 < 0.5 && flip == true) {
 				transform.localScale = new Vector3 (transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
