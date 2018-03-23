@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour {
 
@@ -31,19 +33,36 @@ public class PlayerControl : MonoBehaviour {
 	private Animator myAnimator;
 	private Rigidbody2D myRigidbody;
 
-	public int health = 10;
+	public int coins;
+	public int lives;
+	public int health;
+	private int MAX_HEALTH;
 	public float knockback;
 	public float knockbackLength;
 	public float knockbackCount;
 	public bool knockFromRight;
 
-	//public int coins = PlayerPrefs.GetInt("MoneyAmount");
+	[SerializeField]
+	private TextMeshProUGUI coinsText;
+
+	[SerializeField]
+	private TextMeshProUGUI livesText;
+
+	[SerializeField]
+	private Image healthUI;
+
+
 
 	// Use this for initialization
 	void Start () {
 		myRigidbody = GetComponent<Rigidbody2D> ();
 		facingRight = true;
 		myAnimator = GetComponent<Animator>();
+
+		coins = PlayerPrefs.GetInt("MoneyAmount");
+		lives = 3;
+		MAX_HEALTH = 10;
+		health = 10;
 	}
 	
 	// Update is called once per frame
@@ -55,6 +74,9 @@ public class PlayerControl : MonoBehaviour {
 		flip (horizontal);
 
 		HandleLayers ();
+
+		coins = PlayerPrefs.GetInt("MoneyAmount");
+		UpdateHUD ();
 	}
 
 	private void HandleMovement(float horizontal){
@@ -139,5 +161,11 @@ public class PlayerControl : MonoBehaviour {
 		} else {
 			temp.GetComponent<notes> ().Initialize(Vector2.left);
 		}
+	}
+
+	public void UpdateHUD(){
+		coinsText.text = "x" + coins.ToString ();
+		livesText.text = "x" + lives.ToString ();
+		healthUI.fillAmount = (float)health / (float)MAX_HEALTH;
 	}
 }

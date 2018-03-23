@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UnityStandardAssets._2D
 {
@@ -27,10 +28,17 @@ namespace UnityStandardAssets._2D
         public void RespawnPlayer()
         {
             Debug.Log("Player: Respawn");
-            player.health = 10;
-			Vector3 checkpointPosition = new Vector3 (currentCheckpoint.transform.position.x, currentCheckpoint.transform.position.y + 5, 
-				                   currentCheckpoint.transform.position.z);
-			player.transform.position = checkpointPosition;
+			//death animation here
+			player.lives--;
+			if (player.lives == 0) {
+				Debug.Log ("GAME OVER");
+				SceneManager.LoadScene ("Splash Screen");
+			} else {
+				player.health = 10;
+				Vector3 checkpointPosition = new Vector3 (currentCheckpoint.transform.position.x, currentCheckpoint.transform.position.y + 5, 
+					                             currentCheckpoint.transform.position.z);
+				player.transform.position = checkpointPosition;
+			}
         }
     }
 }
