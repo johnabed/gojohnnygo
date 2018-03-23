@@ -8,31 +8,51 @@ public class ZombieBehaviour : MonoBehaviour {
 	public GameObject stopperA;
 	public GameObject stopperB;
 	public string Smart;
+	public string Runner;
 
-	private float speed=2.0f;
 	private string walkDirection = "right";
 	private bool flip = true;
-	private bool walk = true;
+	private bool move = true;
 
-	private float timeBetweenAttacks;
-	private float dist, dist1, dist2;
+	private float timeBetweenAttacks, timeBetweenHits;
+	private float dist, dist1, dist2, disty;
 	private float attackRange;
+	private float attackDistance;
+	private float speed;
 	private Animator animator;
+
+	private int health;
+	private int damage;
 
 	private void Start()
 	{
 		animator = GetComponent<Animator> ();
 
+		// If smart zombie, increase attack (detection) range
 		if (Smart == "yes" || Smart == "y") {
-			attackRange = 9;
+			attackRange = 8;
 		} else {
 			attackRange = 2;
 		}
-		animator.SetBool ("isWalking", true);
+
+		// Set running or walking type zombie
+		if (Runner == "yes" || Runner == "y") {
+			speed = 5f;
+			attackDistance = 2f;
+			health = 10;
+			damage = 3;
+			animator.SetBool ("isRunning", true);
+		} else {
+			speed = 2.5f;
+			attackDistance = 1.25f;
+			health = 5;
+			damage = 1;
+			animator.SetBool ("isWalking", true);
+		}
 	}
 		
 	// Update is called once per frame
-	void FixedUpdate () {
+	private void FixedUpdate () {
 
 		// Distance between the 2 stoppers
 		dist1 = Vector3.Distance (stopperA.transform.position, transform.position);
@@ -40,26 +60,30 @@ public class ZombieBehaviour : MonoBehaviour {
 
 		// Distance between the zombie and the player
 		dist = Player.transform.position.x - transform.position.x;
+		disty = Player.transform.position.y - transform.position.y;
 
-		// Run walking animation if player is far away
-		if(Math.Abs(dist) > 2 && timeBetweenAttacks < 1.25)
+		// Start moving if player is far away
+		if(Math.Abs(dist) > attackDistance && timeBetweenAttacks < 1.55)
 		{
-			walk = true;
+			move = true;
 		}
 
 		// Run attack animation if player is close
-		else if (Math.Abs(dist) < 2 && timeBetweenAttacks > 1.25)
+		else if (Math.Abs(dist) < attackDistance && Math.Abs(disty) < 3 && timeBetweenAttacks > 1.55)
 		{
 			animator.SetTrigger ("skill_1");
 			timeBetweenAttacks = 0.0f;
-			walk = false;
+			move = false;
+			// playerhealth -= damage;
 		}
 
 		// Timer that prevents animations from being spammed 
 		timeBetweenAttacks += Time.deltaTime;
+		timeBetweenHits += Time.deltaTime;
+
 
 		// Walk if player is not in range of attack
-		if (walk == true && timeBetweenAttacks > 1.25) {
+		if (move == true && timeBetweenAttacks > 1.55) {
 			// Change direction of the zombie when it reaches the end of the platform
 			if (dist1 < 0.5 && flip == true) {
 				transform.localScale = new Vector3 (transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
@@ -115,5 +139,27 @@ public class ZombieBehaviour : MonoBehaviour {
 			} */
 
 
+	}
+
+	// Function to apply damage to zombie
+	public void ApplyDamage (int damage)
+	{
+		if (timeBetweenHits > 0.5) {
+			health -= damage;
+			animator.SetTrigger ("hit_1");
+			timeBetweenAttacks = 0.0f;
+			move = false;
+
+			if (health <= 0) {
+				Dead ();
+			}
+		}
+	}
+
+	// Triggers when zombie's health reaches 0
+	private void Dead()
+	{
+		animator.SetTrigger ("death");
+		Destroy (this.gameObject, 1.5f);
 	}
 }
