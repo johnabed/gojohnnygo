@@ -37,6 +37,8 @@ public class PlayerControl : MonoBehaviour {
 	public float knockbackCount;
 	public bool knockFromRight;
 
+	//public int coins = PlayerPrefs.GetInt("MoneyAmount");
+
 	// Use this for initialization
 	void Start () {
 		myRigidbody = GetComponent<Rigidbody2D> ();

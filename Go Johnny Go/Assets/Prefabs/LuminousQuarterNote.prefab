@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114860698978522456}
   - component: {fileID: 198953554920765628}
   - component: {fileID: 199858880389338202}
+  - component: {fileID: 60228839294835652}
   m_Layer: 0
   m_Name: LuminousQuarterNote
   m_TagString: Untagged
@@ -64,6 +65,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!60 &60228839294835652
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752109190045794}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.24, y: 6.51}
+    newSize: {x: 2.24, y: 6.51}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.75, y: -1.375}
+      - {x: 0.75, y: 2.165}
+      - {x: 0.72999996, y: 2.185}
+      - {x: 0.39999998, y: 2.185}
+      - {x: 0.38, y: 2.165}
+      - {x: 0.38, y: -0.515}
+      - {x: 0.37, y: -0.525}
+      - {x: 0.26999998, y: -0.685}
+      - {x: -0.03, y: -0.685}
+      - {x: -0.39, y: -0.835}
+      - {x: -0.61, y: -1.055}
+      - {x: -0.69, y: -1.155}
+      - {x: -0.76, y: -1.375}
+      - {x: -0.76, y: -1.745}
+      - {x: -0.65999997, y: -1.9549999}
+      - {x: -0.51, y: -2.095}
+      - {x: -0.29, y: -2.175}
+      - {x: 0.04, y: -2.175}
+      - {x: 0.26999998, y: -2.115}
+      - {x: 0.53999996, y: -1.865}
+      - {x: 0.65999997, y: -1.7049999}
 --- !u!114 &114860698978522456
 MonoBehaviour:
   m_ObjectHideFlags: 1

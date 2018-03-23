@@ -28,7 +28,9 @@ namespace UnityStandardAssets._2D
         {
             Debug.Log("Player: Respawn");
             player.health = 10;
-            player.transform.position = currentCheckpoint.transform.position;
+			Vector3 checkpointPosition = new Vector3 (currentCheckpoint.transform.position.x, currentCheckpoint.transform.position.y + 5, 
+				                   currentCheckpoint.transform.position.z);
+			player.transform.position = checkpointPosition;
         }
     }
 }
