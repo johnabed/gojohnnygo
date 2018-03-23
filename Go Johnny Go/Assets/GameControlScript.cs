@@ -6,11 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameControlScript : MonoBehaviour {
 
-	public int moneyAmount;
-
 	// Use this for initialization
 	void Start () {
-		moneyAmount = PlayerPrefs.GetInt ("MoneyAmount");
 	}
 
 	// Update is called once per frame
@@ -19,7 +16,6 @@ public class GameControlScript : MonoBehaviour {
 	}
 
 	public void changeScene(string scene) {
-		PlayerPrefs.SetInt("MoneyAmount", moneyAmount);
 		SceneManager.LoadScene (scene);
 	}
 

@@ -23,6 +23,8 @@ public class CoinBehaviour : MonoBehaviour {
 	}
 
 	private void RewardPlayer (int amount){
-		// player.money += amount;
+		int coins = PlayerPrefs.GetInt ("MoneyAmount");
+		coins++;
+		PlayerPrefs.SetInt ("MoneyAmount", coins);
 	}
 }
