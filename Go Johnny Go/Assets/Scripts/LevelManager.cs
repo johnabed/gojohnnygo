@@ -4,18 +4,18 @@ using UnityEngine;
 
 namespace UnityStandardAssets._2D
 {
-    [RequireComponent(typeof(PlatformerCharacter2D))]
+	[RequireComponent(typeof(PlayerControl))]
     public class LevelManager : MonoBehaviour
     {
 
         public GameObject currentCheckpoint;
-        private PlatformerCharacter2D player;
+		private PlayerControl player;
 
 
         // Use this for initialization
         void Start()
         {
-            player = FindObjectOfType<PlatformerCharacter2D>();
+			player = FindObjectOfType<PlayerControl>();
         }
 
         // Update is called once per frame

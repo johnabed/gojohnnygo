@@ -6,13 +6,13 @@ namespace UnityStandardAssets._2D
 {
     public class Spikes : MonoBehaviour
     {
-        private PlatformerCharacter2D m_Character;
+		private PlayerControl m_Character;
         public LevelManager levelManager;
 
 
         void Start()
         {
-            m_Character = FindObjectOfType<PlatformerCharacter2D>();
+			m_Character = FindObjectOfType<PlayerControl>();
             levelManager = FindObjectOfType<LevelManager>();
         }
 
