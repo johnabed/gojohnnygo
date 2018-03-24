@@ -133,11 +133,23 @@ public class ZombieBehaviour : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
+		PlayerControl playerScript = FindObjectOfType<PlayerControl>();
+		UnityStandardAssets._2D.LevelManager levelManager = FindObjectOfType<UnityStandardAssets._2D.LevelManager>();
 		if (other.tag == "Note" && health > 0) {
-			TakeDamage (1);
+			TakeDamage (playerScript.guitarDmg); //default case
 			Destroy (other.gameObject);
 		} else if (other.tag == "Player") {
-			// do damage to player
+			playerScript.health -= damage; //player loses health based on zombie damage
+			if (playerScript.health <= 0) {
+				levelManager.RespawnPlayer ();
+			} else {
+				playerScript.knockbackCount = playerScript.knockbackLength;
+				if (other.transform.position.x < transform.position.x) {
+					playerScript.knockFromRight = true;
+				} else {
+					playerScript.knockFromRight = false;
+				}
+			}
 		}
 	}
 

@@ -18,7 +18,7 @@ public class ShopControlScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		guitar_b_price = 1;
+		guitar_b_price = 2;
 		moneyAmount = PlayerPrefs.GetInt("MoneyAmount");
 		guitarBought = PlayerPrefs.GetInt ("GuitarB_Bought") == 1 ? true : false;
 		setBought (guitarBought);
