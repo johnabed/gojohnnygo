@@ -302,7 +302,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1250 Coins
+  m_Text: 250 Coins
 --- !u!222 &110063624
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1157,7 +1157,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Guitar B
+  m_Text: '"Airline"'
 --- !u!222 &469229097
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2623,7 +2623,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2000 Coins
+  m_Text: 1000 Coins
 --- !u!222 &1211073708
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2705,11 +2705,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ae2d8d13ab44eada60ecdb1575fe12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyAmount: 0
+  guitarBought: 0
   coinsText: {fileID: 1596817198}
   buyButton: {fileID: 472678614}
   amountText: {fileID: 1687897035}
   buyText: {fileID: 649491044}
-  price: 0
+  guitar_b_price: 0
   backButton: {fileID: 441729232}
 --- !u!1 &1247522515
 GameObject:
@@ -3365,7 +3367,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1000
+  m_Text: 0
 --- !u!222 &1596817199
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4110,7 +4112,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Guitar A
+  m_Text: Les Paul
 --- !u!222 &2080231989
 CanvasRenderer:
   m_ObjectHideFlags: 0

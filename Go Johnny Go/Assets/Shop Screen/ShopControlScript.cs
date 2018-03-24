@@ -12,14 +12,15 @@ public class ShopControlScript : MonoBehaviour {
 	public Button buyButton;
 	public Text amountText;
 	public Text buyText;
-	public int price;
+	public int guitar_b_price;
 	public Button backButton;
 
 
 	// Use this for initialization
 	void Start () {
+		guitar_b_price = 1;
 		moneyAmount = PlayerPrefs.GetInt("MoneyAmount");
-		guitarBought = PlayerPrefs.GetInt ("GuitarBought") == 1 ? true : false;
+		guitarBought = PlayerPrefs.GetInt ("GuitarB_Bought") == 1 ? true : false;
 		setBought (guitarBought);
 
 		coinsText.text = moneyAmount.ToString ();
@@ -28,15 +29,12 @@ public class ShopControlScript : MonoBehaviour {
 
 		Button btn2 = backButton.GetComponent<Button>();
 		btn2.onClick.AddListener(mainMenuScene);
-
-		int index = amountText.text.IndexOf (" "); //used to remove " Coins"
-		price = int.Parse(amountText.text.Substring(0,index));
 	}
 
 	// Update is called once per frame
 	void Update () {
 		//makes buy button clickable if funds available
-		if (price <= moneyAmount) {
+		if (guitar_b_price <= moneyAmount) {
 			buyButton.interactable = true;
 		}
 		else {
@@ -45,9 +43,10 @@ public class ShopControlScript : MonoBehaviour {
 	}
 
 	void BuyOnClick() {		
-			moneyAmount -= price;
+			moneyAmount -= guitar_b_price;
 			PlayerPrefs.SetInt("MoneyAmount", moneyAmount);
-			PlayerPrefs.SetInt("GuitarBought", 1);
+			PlayerPrefs.SetInt("GuitarB_Bought", 1); //indicates that 2nd guitar has been purchased
+			PlayerPrefs.SetInt("GuitarType", 1); //sets currently equipped guitar to the 2nd guitar
 			coinsText.text = moneyAmount.ToString();
 			setBought (true);
 	}
@@ -58,7 +57,7 @@ public class ShopControlScript : MonoBehaviour {
 			buyText.text = "OWNED";
 			buyButton.image.enabled = false;
 		} else {
-			amountText.text = "500 Coins";
+			amountText.text = guitar_b_price.ToString() + " Coins";
 			buyText.text = "BUY";
 			buyButton.image.enabled = true;
 		}

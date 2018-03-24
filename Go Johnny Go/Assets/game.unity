@@ -20849,6 +20849,8 @@ MonoBehaviour:
   coins: 0
   lives: 0
   health: 10
+  guitarType: 0
+  playerDmg: 0
   knockback: 6
   knockbackLength: 0.2
   knockbackCount: 0
@@ -20856,6 +20858,8 @@ MonoBehaviour:
   coinsText: {fileID: 2101356179}
   livesText: {fileID: 1415375571}
   healthUI: {fileID: 906385674}
+  guitarA: {fileID: 21300000, guid: c254223f1583240bf936d1783ea7b14a, type: 3}
+  guitarB: {fileID: 21300000, guid: 2c0398e4a766848bab530f3d8e07ca40, type: 3}
 --- !u!212 &534623611
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -37,6 +37,10 @@ public class PlayerControl : MonoBehaviour {
 	public int lives;
 	public int health;
 	private int MAX_HEALTH;
+	public int guitarType;
+	public int playerDmg;
+
+
 	public float knockback;
 	public float knockbackLength;
 	public float knockbackCount;
@@ -51,7 +55,9 @@ public class PlayerControl : MonoBehaviour {
 	[SerializeField]
 	private Image healthUI;
 
-
+	private SpriteRenderer guitar_renderer;
+	public Sprite guitarA;
+	public Sprite guitarB;
 
 	// Use this for initialization
 	void Start () {
@@ -63,10 +69,22 @@ public class PlayerControl : MonoBehaviour {
 		lives = 3;
 		MAX_HEALTH = 10;
 		health = 10;
+
+		//selecting guitartype for player sprite and damage
+		guitarType = PlayerPrefs.GetInt ("GuitarType");
+		guitar_renderer = guitar.GetComponent<SpriteRenderer> ();
+		if (guitarType == 0) {
+			playerDmg = 1;
+			guitar_renderer.sprite = guitarA;
+
+		} else {
+			playerDmg = 2;
+			guitar_renderer.sprite = guitarB;
+		}
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		float horizontal = Input.GetAxis ("Horizontal");
 		isGrounded = IsGrounded ();
 
@@ -74,7 +92,9 @@ public class PlayerControl : MonoBehaviour {
 		flip (horizontal);
 
 		HandleLayers ();
+	}
 
+	void FixedUpdate () {
 		coins = PlayerPrefs.GetInt("MoneyAmount");
 		UpdateHUD ();
 	}
