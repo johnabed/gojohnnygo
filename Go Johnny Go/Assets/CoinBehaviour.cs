@@ -15,7 +15,7 @@ public class CoinBehaviour : MonoBehaviour {
 		distx = player.transform.position.x - transform.position.x;
 		disty = player.transform.position.y - transform.position.y;
 
-		if (Math.Abs (distx) < 0.3 && Math.Abs (disty) < 1) {
+		if (Math.Abs (distx) < 0.5 && Math.Abs (disty) < 1) {
 			// play sound when coin obtained?
 			Destroy (this.gameObject);
 			RewardPlayer (1);

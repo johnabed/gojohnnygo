@@ -39,13 +39,13 @@ public class ZombieBehaviour : MonoBehaviour {
 		if (Runner == "yes" || Runner == "y") {
 			speed = 5f;
 			attackDistance = 2f;
-			health = 10;
+			health = 6;
 			damage = 3;
 			animator.SetBool ("isRunning", true);
 		} else {
 			speed = 2.5f;
 			attackDistance = 1.25f;
-			health = 5;
+			health = 3;
 			damage = 1;
 			animator.SetBool ("isWalking", true);
 		}
@@ -130,26 +130,19 @@ public class ZombieBehaviour : MonoBehaviour {
 				walkDirection = "right";
 			}
 		}
-		/*
-			} else if (atkTimes == 2) {
-				animator.SetTrigger ("hit_2");
-			} else if (atkTimes == 3) {
-				animator.SetTrigger ("hit_2");
-				animator.SetTrigger ("death");
-			} */
-
-
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		if (other.name == "Note") {
-			ApplyDamage (1);
+		if (other.tag == "Note" && health > 0) {
+			TakeDamage (1);
 			Destroy (other.gameObject);
+		} else if (other.tag == "Player") {
+			// do damage to player
 		}
 	}
 
 	// Function to apply damage to zombie
-	public void ApplyDamage (int damage)
+	public void TakeDamage (int damage)
 	{
 		if (timeBetweenHits > 0.5) {
 			health -= damage;
