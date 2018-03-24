@@ -20463,7 +20463,6 @@ MonoBehaviour:
   lives: 0
   health: 10
   guitarType: 0
-  playerDmg: 0
   knockback: 6
   knockbackLength: 0.2
   knockbackCount: 0
@@ -20473,6 +20472,7 @@ MonoBehaviour:
   healthUI: {fileID: 906385674}
   guitarA: {fileID: 21300000, guid: c254223f1583240bf936d1783ea7b14a, type: 3}
   guitarB: {fileID: 21300000, guid: 2c0398e4a766848bab530f3d8e07ca40, type: 3}
+  guitarDmg: 0
 --- !u!212 &534623611
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -46600,7 +46600,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1283629100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54256,11 +54256,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -77573,11 +77573,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:

@@ -38,8 +38,6 @@ public class PlayerControl : MonoBehaviour {
 	public int health;
 	private int MAX_HEALTH;
 	public int guitarType;
-	public int playerDmg;
-
 
 	public float knockback;
 	public float knockbackLength;
@@ -56,8 +54,10 @@ public class PlayerControl : MonoBehaviour {
 	private Image healthUI;
 
 	private SpriteRenderer guitar_renderer;
+	private SpriteRenderer note_renderer;
 	public Sprite guitarA;
 	public Sprite guitarB;
+	public int guitarDmg;
 
 	// Use this for initialization
 	void Start () {
@@ -73,13 +73,16 @@ public class PlayerControl : MonoBehaviour {
 		//selecting guitartype for player sprite and damage
 		guitarType = PlayerPrefs.GetInt ("GuitarType");
 		guitar_renderer = guitar.GetComponent<SpriteRenderer> ();
-		if (guitarType == 0) {
-			playerDmg = 1;
-			guitar_renderer.sprite = guitarA;
+		note_renderer = notePrefab.GetComponent<SpriteRenderer> ();
 
+		if (guitarType == 0) {
+			guitar_renderer.sprite = guitarA;
+			guitarDmg = 1;
+			note_renderer.color = Color.blue;
 		} else {
-			playerDmg = 2;
 			guitar_renderer.sprite = guitarB;
+			guitarDmg = 2;
+			note_renderer.color = Color.red;
 		}
 	}
 	
@@ -129,7 +132,7 @@ public class PlayerControl : MonoBehaviour {
 			//myAnimator.SetTrigger ("strum");
 			guitar.GetComponentInChildren<ParticleSystem>().Emit(500);
 			//guitar.GetComponent<ParticleSystem>().Emit(500);
-			StrumNote (0);
+			StrumNote ();
 		}
 		if (isGrounded && jump) {
 			isGrounded = false;
@@ -174,8 +177,9 @@ public class PlayerControl : MonoBehaviour {
 		}
 	}
 
-	public void StrumNote(int value){
+	public void StrumNote(){
 		GameObject temp = (GameObject)Instantiate (notePrefab, guitar.GetComponentInChildren<ParticleSystem>().transform.position, Quaternion.identity);
+
 		if (facingRight) {
 			temp.GetComponent<notes> ().Initialize(Vector2.right);
 		} else {
