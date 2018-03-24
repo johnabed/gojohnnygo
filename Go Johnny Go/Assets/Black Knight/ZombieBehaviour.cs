@@ -52,7 +52,7 @@ public class ZombieBehaviour : MonoBehaviour {
 	}
 		
 	// Update is called once per frame
-	private void FixedUpdate () {
+	private void Update () {
 
 		// Distance between the 2 stoppers
 		dist1 = Vector3.Distance (stopperA.transform.position, transform.position);
@@ -139,6 +139,13 @@ public class ZombieBehaviour : MonoBehaviour {
 			} */
 
 
+	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.name == "Note") {
+			ApplyDamage (1);
+			Destroy (other.gameObject);
+		}
 	}
 
 	// Function to apply damage to zombie
