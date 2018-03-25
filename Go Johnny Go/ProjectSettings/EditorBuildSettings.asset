@@ -59,3 +59,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Shop Screen.unity
     guid: 4c8b6d20a3eb64d928536cafc1cf5dd6
+  - enabled: 1
+    path: Assets/boss_level.unity
+    guid: f0bc168d5da56b54996b861f3669e608
