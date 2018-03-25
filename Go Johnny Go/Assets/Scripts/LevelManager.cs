@@ -32,7 +32,7 @@ namespace UnityStandardAssets._2D
 			player.lives--;
 			if (player.lives == 0) {
 				Debug.Log ("GAME OVER");
-				SceneManager.LoadScene ("Splash Screen");
+				SceneManager.LoadScene ("Level Select");
 			} else {
 				player.health = 10;
 				Vector3 checkpointPosition = new Vector3 (currentCheckpoint.transform.position.x, currentCheckpoint.transform.position.y + 5, 
