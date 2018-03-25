@@ -10,23 +10,29 @@ public class ZombieBehaviour : MonoBehaviour {
 	public string Smart;
 	public string Runner;
 
+	private PlayerControl playerScript;
+	private UnityStandardAssets._2D.LevelManager levelManager;
+
 	private string walkDirection = "right";
 	private bool flip = true;
 	private bool move = true;
+	private bool attack = true;
 
-	private float timeBetweenAttacks, timeBetweenHits;
+	public float timeBetweenAttacks, timeBetweenHits;
 	private float dist, dist1, dist2, disty;
 	private float attackRange;
 	private float attackDistance;
 	private float speed;
-	private Animator animator;
+	public Animator animator;
 
-	private int health;
-	private int damage;
+	public int health;
+	public int damage;
 
 	private void Start()
 	{
 		animator = GetComponent<Animator> ();
+		playerScript = FindObjectOfType<PlayerControl>();
+		levelManager = FindObjectOfType<UnityStandardAssets._2D.LevelManager>();
 
 		// If smart zombie, increase attack (detection) range
 		if (Smart == "yes" || Smart == "y") {
@@ -38,13 +44,13 @@ public class ZombieBehaviour : MonoBehaviour {
 		// Set running or walking type zombie
 		if (Runner == "yes" || Runner == "y") {
 			speed = 5f;
-			attackDistance = 2f;
+			attackDistance = 2.25f;
 			health = 6;
-			damage = 3;
+			damage = 2;
 			animator.SetBool ("isRunning", true);
 		} else {
 			speed = 2.5f;
-			attackDistance = 1.25f;
+			attackDistance = 0f;
 			health = 3;
 			damage = 1;
 			animator.SetBool ("isWalking", true);
@@ -63,29 +69,45 @@ public class ZombieBehaviour : MonoBehaviour {
 		disty = Player.transform.position.y - transform.position.y;
 
 		// Start moving if player is far away
-		if(Math.Abs(dist) > attackDistance && timeBetweenAttacks < 1.55)
+		if(Math.Abs(dist) > attackDistance && timeBetweenAttacks < 1.5)
 		{
 			move = true;
 		}
 
 		// Run attack animation if player is close
-		else if (Math.Abs(dist) < attackDistance && Math.Abs(disty) < 3 && timeBetweenAttacks > 1.55)
+		else if (attackDistance != 0f && Math.Abs(dist) < attackDistance && Math.Abs(disty) < 3 && timeBetweenAttacks > 1.5)
 		{
 			animator.SetTrigger ("skill_1");
 			timeBetweenAttacks = 0.0f;
 			move = false;
-			// playerhealth -= damage;
+			attack = true; // reset to true so zombie is allowed to attack again
+		}
+
+		// Player gets hit by sword attack if in range of sword
+		if (attack == true && timeBetweenAttacks > 0.5 && move == false) {
+			attack = false;			
+			playerScript.health -= damage; //player loses health based on zombie damage
+			if (playerScript.health <= 0) {
+				levelManager.RespawnPlayer ();
+			} else {
+				playerScript.knockbackCount = playerScript.knockbackLength;
+				if (Player.transform.position.x < transform.position.x) {
+					playerScript.knockFromRight = true;
+				} else {
+					playerScript.knockFromRight = false;
+				}
+			}
 		}
 
 		// Timer that prevents animations from being spammed 
 		timeBetweenAttacks += Time.deltaTime;
 		timeBetweenHits += Time.deltaTime;
 
-
 		// Walk if player is not in range of attack
-		if (move == true && timeBetweenAttacks > 1.55) {
+		if (move == true && timeBetweenAttacks > 1.5) {
 			// Change direction of the zombie when it reaches the end of the platform
 			if (dist1 < 0.5 && flip == true) {
+
 				transform.localScale = new Vector3 (transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
 				walkDirection = "right";
 				flip = false;
@@ -133,8 +155,6 @@ public class ZombieBehaviour : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		PlayerControl playerScript = FindObjectOfType<PlayerControl>();
-		UnityStandardAssets._2D.LevelManager levelManager = FindObjectOfType<UnityStandardAssets._2D.LevelManager>();
 		if (other.tag == "Note" && health > 0) {
 			TakeDamage (playerScript.guitarDmg); //default case
 			Destroy (other.gameObject);

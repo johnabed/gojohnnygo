@@ -22,7 +22,7 @@ public class ShopControlScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		guitar_b_price = 2;
+		guitar_b_price = 25;
 		amountText.text = guitar_b_price.ToString() + " Coins";
 		moneyAmount = PlayerPrefs.GetInt("MoneyAmount");
 		guitarBought = PlayerPrefs.GetInt ("GuitarB_Bought") == 1 ? true : false;
@@ -53,17 +53,19 @@ public class ShopControlScript : MonoBehaviour {
 			moneyAmount -= guitar_b_price;
 			PlayerPrefs.SetInt("MoneyAmount", moneyAmount);
 			PlayerPrefs.SetInt("GuitarB_Bought", 1); //indicates that 2nd guitar has been purchased
-			changeGuitar(1);	
 			coinsText.text = moneyAmount.ToString();
 			setBought (true);
+			changeGuitar(1);
 	}
 
 	void setBought(bool isBought) {
 		if (isBought) {
+			guitarBought = true;
 			amountText.enabled = false;
 			buyText.text = "OWNED";
 			buyButton.image.enabled = false;
 		} else {
+			guitarBought = false;
 			amountText.enabled = true;
 			buyText.text = "BUY";
 			buyButton.image.enabled = true;
