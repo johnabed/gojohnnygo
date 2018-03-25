@@ -3162,10 +3162,6 @@ MonoBehaviour:
   buyText: {fileID: 649491044}
   guitar_b_price: 0
   backButton: {fileID: 441729232}
-  equipButton1: {fileID: 1377246168}
-  equipButton2: {fileID: 371449686}
-  equipText1: {fileID: 1776785284}
-  equipText2: {fileID: 521362116}
 --- !u!1 &1247522515
 GameObject:
   m_ObjectHideFlags: 0
@@ -3550,7 +3546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.8897059, g: 0.87662196, b: 0.87662196, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
