@@ -14,21 +14,28 @@ public class ShopControlScript : MonoBehaviour {
 	public Text buyText;
 	public int guitar_b_price;
 	public Button backButton;
+	public Button equipButton1;
+	public Button equipButton2;
+	public Text equipText1;
+	public Text equipText2;
 
 
 	// Use this for initialization
 	void Start () {
 		guitar_b_price = 2;
+		amountText.text = guitar_b_price.ToString() + " Coins";
 		moneyAmount = PlayerPrefs.GetInt("MoneyAmount");
 		guitarBought = PlayerPrefs.GetInt ("GuitarB_Bought") == 1 ? true : false;
 		setBought (guitarBought);
 
 		coinsText.text = moneyAmount.ToString ();
-		Button btn = buyButton.GetComponent<Button>();
-		btn.onClick.AddListener(BuyOnClick);
 
-		Button btn2 = backButton.GetComponent<Button>();
-		btn2.onClick.AddListener(mainMenuScene);
+		buyButton.onClick.AddListener(BuyOnClick);
+		backButton.onClick.AddListener(mainMenuScene);
+		equipButton1.onClick.AddListener(delegate{changeGuitar(0);});
+		equipButton2.onClick.AddListener(delegate{changeGuitar(1);});
+
+		changeGuitar (PlayerPrefs.GetInt ("GuitarType"));
 	}
 
 	// Update is called once per frame
@@ -46,18 +53,18 @@ public class ShopControlScript : MonoBehaviour {
 			moneyAmount -= guitar_b_price;
 			PlayerPrefs.SetInt("MoneyAmount", moneyAmount);
 			PlayerPrefs.SetInt("GuitarB_Bought", 1); //indicates that 2nd guitar has been purchased
-			PlayerPrefs.SetInt("GuitarType", 1); //sets currently equipped guitar to the 2nd guitar
+			changeGuitar(1);	
 			coinsText.text = moneyAmount.ToString();
 			setBought (true);
 	}
 
 	void setBought(bool isBought) {
 		if (isBought) {
-			amountText.text = "";
+			amountText.enabled = false;
 			buyText.text = "OWNED";
 			buyButton.image.enabled = false;
 		} else {
-			amountText.text = guitar_b_price.ToString() + " Coins";
+			amountText.enabled = true;
 			buyText.text = "BUY";
 			buyButton.image.enabled = true;
 		}
@@ -66,5 +73,26 @@ public class ShopControlScript : MonoBehaviour {
 	void mainMenuScene() {
 		PlayerPrefs.SetInt("MoneyAmount", moneyAmount);
 		SceneManager.LoadScene ("Main Menu");
+	}
+
+
+	void changeGuitar(int guitarNum) {
+		PlayerPrefs.SetInt("GuitarType", guitarNum);
+		if (guitarNum == 0) {
+			equipButton1.gameObject.SetActive (false);
+			equipText1.enabled = true;
+			equipButton2.gameObject.SetActive (true);
+			equipText2.enabled = false;
+		} else {
+			equipButton1.gameObject.SetActive (true);
+			equipText1.enabled = false;
+			equipButton2.gameObject.SetActive (false);
+			equipText2.enabled = true;
+		}
+
+		if (!guitarBought) {
+			equipButton2.gameObject.SetActive (false);
+			equipText2.enabled = false;
+		}
 	}
 }

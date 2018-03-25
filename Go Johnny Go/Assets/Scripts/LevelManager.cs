@@ -10,6 +10,7 @@ namespace UnityStandardAssets._2D
     {
 
         public GameObject currentCheckpoint;
+		public GameObject gameOverMenuUI;
 		private PlayerControl player;
 
 
@@ -32,7 +33,8 @@ namespace UnityStandardAssets._2D
 			player.lives--;
 			if (player.lives == 0) {
 				Debug.Log ("GAME OVER");
-				SceneManager.LoadScene ("Splash Screen");
+				gameOverMenuUI.SetActive(true);
+				Time.timeScale = 0f;
 			} else {
 				player.health = 10;
 				Vector3 checkpointPosition = new Vector3 (currentCheckpoint.transform.position.x, currentCheckpoint.transform.position.y + 5, 
