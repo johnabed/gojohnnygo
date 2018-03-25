@@ -25,6 +25,7 @@ public class SaucerBehaviour : MonoBehaviour {
 
 	private GameObject player;
 	private bool moveWithPlatform = false;
+    public SceneFader fader;
 
 	// Use this for initialization
 	void Start () {
@@ -51,7 +52,7 @@ public class SaucerBehaviour : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Player")) {
 			player = GameObject.FindGameObjectWithTag ("Player");
 			player.transform.parent = transform;
-			ChangeLevel ();
+			ChangeLevel ("boss_level");
 
 		}
 
@@ -100,9 +101,8 @@ public class SaucerBehaviour : MonoBehaviour {
 			nexPos = posD;
 	}
 
-	private void ChangeLevel () 
+	private void ChangeLevel (string levelName) 
 	{
-	 	GameObject.Find ("_GM").GetComponent<SceneFader> ().FadeTo("boss_leveL");
-
+        fader.FadeTo(levelName);
 	}
 }

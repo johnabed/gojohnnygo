@@ -7,6 +7,7 @@ public class SceneFader : MonoBehaviour {
 
     public Image img;
     public AnimationCurve curve;
+    private float t;
 
     void Start()
     {
@@ -33,11 +34,13 @@ public class SceneFader : MonoBehaviour {
 
     IEnumerator FadeOut(string scene)
     {
-        float t = 0f;
-
-        while (t > 1f)
+        int multi = 1;
+        if (scene=="boss_level") {
+            multi = 10;
+        }
+        while (t < 1f)
         {
-            t += Time.deltaTime;
+            t = t + (Time.deltaTime/multi);
             float a = curve.Evaluate(t);
             img.color = new Color(0f, 0f, 0f, a);
             yield return 0;
