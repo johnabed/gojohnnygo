@@ -8,6 +8,7 @@ TagManager:
   - Spike
   - Border
   - Note
+  - music
   layers:
   - Default
   - TransparentFX
