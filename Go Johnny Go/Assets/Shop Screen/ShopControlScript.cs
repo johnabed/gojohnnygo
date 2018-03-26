@@ -19,6 +19,8 @@ public class ShopControlScript : MonoBehaviour {
 	public Text equipText1;
 	public Text equipText2;
 
+	public AudioClip ChaChingClip;
+	public AudioSource ChaChingSource;
 
 	// Use this for initialization
 	void Start () {
@@ -36,6 +38,8 @@ public class ShopControlScript : MonoBehaviour {
 		equipButton2.onClick.AddListener(delegate{changeGuitar(1);});
 
 		changeGuitar (PlayerPrefs.GetInt ("GuitarType"));
+
+		ChaChingSource.clip = ChaChingClip;
 	}
 
 	// Update is called once per frame
@@ -50,6 +54,7 @@ public class ShopControlScript : MonoBehaviour {
 	}
 
 	void BuyOnClick() {		
+			ChaChingSource.Play ();
 			moneyAmount -= guitar_b_price;
 			PlayerPrefs.SetInt("MoneyAmount", moneyAmount);
 			PlayerPrefs.SetInt("GuitarB_Bought", 1); //indicates that 2nd guitar has been purchased
