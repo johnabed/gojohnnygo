@@ -40,12 +40,15 @@ public class Pause_Menu : MonoBehaviour {
     public void LoadMenu()
     {
         Time.timeScale = 1f;
+		PlayerPrefs.DeleteKey ("Lives");
+		PlayerPrefs.DeleteKey ("Health");
         SceneManager.LoadScene(menu);
     }
 
     public void ExitGame()
     {
         Debug.Log("Exiting game...");
+		PlayerPrefs.DeleteAll ();
         Application.Quit();
     }
 }

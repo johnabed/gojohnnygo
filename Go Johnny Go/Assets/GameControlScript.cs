@@ -20,8 +20,8 @@ public class GameControlScript : MonoBehaviour {
 	}
 
 	public void quitGame() {
-		PlayerPrefs.DeleteAll ();
 		Debug.Log ("QUIT");
+		PlayerPrefs.DeleteAll ();
 		Application.Quit ();
 	}
 }

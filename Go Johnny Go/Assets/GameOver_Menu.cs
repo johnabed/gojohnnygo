@@ -12,18 +12,23 @@ public class GameOver_Menu : MonoBehaviour {
     public void LevelSelect()
     {
 		Time.timeScale = 1f;
+		PlayerPrefs.DeleteKey ("Lives");
+		PlayerPrefs.DeleteKey ("Health");
 		SceneManager.LoadScene("Level Select");
     }
 
     public void LoadMenu()
     {
         Time.timeScale = 1f;
+		PlayerPrefs.DeleteKey ("Lives");
+		PlayerPrefs.DeleteKey ("Health");
         SceneManager.LoadScene("Main Menu");
     }
 
     public void ExitGame()
     {
         Debug.Log("Exiting game...");
+		PlayerPrefs.DeleteAll ();
         Application.Quit();
     }
 }

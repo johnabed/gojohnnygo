@@ -66,9 +66,13 @@ public class PlayerControl : MonoBehaviour {
 		myAnimator = GetComponent<Animator>();
 
 		coins = PlayerPrefs.GetInt("MoneyAmount");
-		lives = 3;
+		lives = PlayerPrefs.GetInt("Lives");
+		if (lives == 0)
+			lives = 3;
 		MAX_HEALTH = 10;
-		health = 10;
+		health = PlayerPrefs.GetInt("Health");
+		if (health == 0)
+			health = 10;
 
 		//selecting guitartype for player sprite and damage
 		guitarType = PlayerPrefs.GetInt ("GuitarType");
