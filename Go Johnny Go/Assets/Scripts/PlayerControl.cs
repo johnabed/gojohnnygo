@@ -59,6 +59,9 @@ public class PlayerControl : MonoBehaviour {
 	public Sprite guitarB;
 	public int guitarDmg;
 
+	public AudioClip MusicNoteClip;
+	public AudioSource MusicNoteSource;
+
 	// Use this for initialization
 	void Start () {
 		myRigidbody = GetComponent<Rigidbody2D> ();
@@ -66,9 +69,13 @@ public class PlayerControl : MonoBehaviour {
 		myAnimator = GetComponent<Animator>();
 
 		coins = PlayerPrefs.GetInt("MoneyAmount");
-		lives = 3;
+		lives = PlayerPrefs.GetInt("Lives");
+		if (lives == 0)
+			lives = 3;
 		MAX_HEALTH = 10;
-		health = 10;
+		health = PlayerPrefs.GetInt("Health");
+		if (health == 0)
+			health = 10;
 
 		//selecting guitartype for player sprite and damage
 		guitarType = PlayerPrefs.GetInt ("GuitarType");
@@ -84,6 +91,8 @@ public class PlayerControl : MonoBehaviour {
 			guitarDmg = 2;
 			note_renderer.color = Color.red;
 		}
+
+		MusicNoteSource.clip = MusicNoteClip;
 	}
 	
 	// Update is called once per frame
@@ -178,6 +187,7 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	public void StrumNote(){
+		MusicNoteSource.Play ();
 		GameObject temp = (GameObject)Instantiate (notePrefab, guitar.GetComponentInChildren<ParticleSystem>().transform.position, Quaternion.identity);
 
 		if (facingRight) {

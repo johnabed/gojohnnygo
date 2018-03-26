@@ -33,6 +33,8 @@ namespace UnityStandardAssets._2D
 			player.lives--;
 			if (player.lives == 0) {
 				Debug.Log ("GAME OVER");
+				PlayerPrefs.DeleteKey ("Lives");
+				PlayerPrefs.DeleteKey ("Health");
 				gameOverMenuUI.SetActive(true);
 				Time.timeScale = 0f;
 			} else {

@@ -24,6 +24,7 @@ public class SaucerBehaviour : MonoBehaviour {
 	private Transform transformD;
 
 	private GameObject player;
+	private PlayerControl playerScript;
 	private bool moveWithPlatform = false;
     public SceneFader fader;
 
@@ -103,6 +104,9 @@ public class SaucerBehaviour : MonoBehaviour {
 
 	private void ChangeLevel (string levelName) 
 	{
+		playerScript = FindObjectOfType<PlayerControl>();
+		PlayerPrefs.SetInt ("Lives", playerScript.lives);
+		PlayerPrefs.SetInt ("Health", playerScript.health);
         fader.FadeTo(levelName);
 	}
 }
