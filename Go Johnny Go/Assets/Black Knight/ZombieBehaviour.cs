@@ -137,7 +137,7 @@ public class ZombieBehaviour : MonoBehaviour {
 		}
 
 		// Change behaviour of Player if player enters its range
-		if (Math.Abs (dist) < attackRange && dist1 > 1.5 && dist2 > 1.5) {
+		if (Math.Abs (dist) < attackRange && dist1 > 1.5 && dist2 > 1.5 && health > 0) {
 			if (dist < 0) {
 				if (walkDirection == "right") {
 					transform.localScale = new Vector3 (transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
@@ -158,7 +158,7 @@ public class ZombieBehaviour : MonoBehaviour {
 		if (other.tag == "Note" && health > 0) {
 			TakeDamage (playerScript.guitarDmg); //default case
 			Destroy (other.gameObject);
-		} else if (other.tag == "Player") {
+		} else if (other.tag == "Player" && health > 0) {
 			playerScript.health -= damage; //player loses health based on zombie damage
 			if (playerScript.health <= 0) {
 				levelManager.RespawnPlayer ();

@@ -189,12 +189,12 @@ public class PlayerControl : MonoBehaviour {
 	public void StrumNote(){
 		MusicNoteSource.Play ();
 		GameObject temp = (GameObject)Instantiate (notePrefab, guitar.GetComponentInChildren<ParticleSystem>().transform.position, Quaternion.identity);
-
 		if (facingRight) {
 			temp.GetComponent<notes> ().Initialize(Vector2.right);
 		} else {
 			temp.GetComponent<notes> ().Initialize(Vector2.left);
 		}
+		Destroy (temp, 1.5f);
 	}
 
 	public void UpdateHUD(){
