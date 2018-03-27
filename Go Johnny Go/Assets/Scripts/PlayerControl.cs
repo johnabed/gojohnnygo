@@ -11,6 +11,8 @@ public class PlayerControl : MonoBehaviour {
 
 	private bool facingRight;
 
+	private UnityStandardAssets._2D.LevelManager levelManager;
+
 	[SerializeField]
 	private Transform[] groundPoints;
 	[SerializeField]
@@ -97,6 +99,8 @@ public class PlayerControl : MonoBehaviour {
 
 		MusicNoteSource.clip = MusicNoteClip;
 		CoinCollectSource.clip = CoinCollectClip;
+
+		levelManager = FindObjectOfType<UnityStandardAssets._2D.LevelManager>();
 	}
 	
 	// Update is called once per frame
@@ -211,5 +215,18 @@ public class PlayerControl : MonoBehaviour {
 		CoinCollectSource.Play ();
 		coins += amount;
 		PlayerPrefs.SetInt ("MoneyAmount", coins);
+	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.tag == "BossNote" && health > 0) {
+			health -= 1; //player loses health based on zombie damage
+			if (health <= 0) {
+				levelManager.RespawnPlayer ();
+			} else {
+				knockFromRight = true;
+				knockbackCount = knockbackLength;
+			}
+			Destroy (other.gameObject);
+		}
 	}
 }

@@ -22,6 +22,10 @@ public class BossController : MonoBehaviour {
 	private Vector3[] locations = new Vector3[4];
 	private GameObject[] children;
 
+	[SerializeField]
+	private GameObject chains;
+	[SerializeField]
+	private GameObject player;
 
 	// Use this for initialization
 	void Start () {
@@ -56,7 +60,7 @@ public class BossController : MonoBehaviour {
 		GameObject temp = (GameObject)Instantiate (notePrefab, spawnPosition, Quaternion.identity);
 		temp.GetComponent<notes> ().Initialize(Vector2.left);
 		temp.transform.localScale = new Vector3 (1, 1, 0);
-
+		temp.layer = 8; //places note on the No Collide layer which stops it from clipping with environment
 	}
 
 	void initializeNotes(){
