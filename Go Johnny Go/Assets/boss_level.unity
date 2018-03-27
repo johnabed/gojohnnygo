@@ -657,7 +657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notePrefab: {fileID: 1752109190045794, guid: ac4b4986f329d46939b5552dc4473cec, type: 2}
   noteTime: 0.61
-  noteReleaseTime: 34.6
+  noteReleaseTime: 34.75
   chains: {fileID: 2080512728}
   player: {fileID: 605186543}
 --- !u!1 &261277277
