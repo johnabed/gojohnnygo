@@ -22,6 +22,8 @@ public class LevelSelector : MonoBehaviour {
 
     public void Select(string levelName)
     {
+		PlayerPrefs.DeleteKey ("Health"); //start with fresh health/lives at each level
+		PlayerPrefs.DeleteKey ("Lives");
         fader.FadeTo(levelName);
     }
 }
