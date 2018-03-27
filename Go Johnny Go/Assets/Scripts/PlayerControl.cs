@@ -62,6 +62,9 @@ public class PlayerControl : MonoBehaviour {
 	public AudioClip MusicNoteClip;
 	public AudioSource MusicNoteSource;
 
+	public AudioClip CoinCollectClip;
+	public AudioSource CoinCollectSource;
+
 	// Use this for initialization
 	void Start () {
 		myRigidbody = GetComponent<Rigidbody2D> ();
@@ -93,6 +96,7 @@ public class PlayerControl : MonoBehaviour {
 		}
 
 		MusicNoteSource.clip = MusicNoteClip;
+		CoinCollectSource.clip = CoinCollectClip;
 	}
 	
 	// Update is called once per frame
@@ -201,5 +205,11 @@ public class PlayerControl : MonoBehaviour {
 		coinsText.text = "x" + coins.ToString ();
 		livesText.text = "x" + lives.ToString ();
 		healthUI.fillAmount = (float)health / (float)MAX_HEALTH;
+	}
+
+	public void coinCollect(int amount) {
+		CoinCollectSource.Play ();
+		coins += amount;
+		PlayerPrefs.SetInt ("MoneyAmount", coins);
 	}
 }
