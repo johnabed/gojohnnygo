@@ -657,7 +657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notePrefab: {fileID: 1752109190045794, guid: ac4b4986f329d46939b5552dc4473cec, type: 2}
   noteTime: 0.61
-  noteReleaseTime: 34
+  noteReleaseTime: 34.6
   chains: {fileID: 2080512728}
   player: {fileID: 605186543}
 --- !u!1 &261277277
@@ -5341,7 +5341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.659}
+  m_Color: {r: 0.4705882, g: 0.4705882, b: 0.4705882, a: 0.659}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
