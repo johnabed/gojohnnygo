@@ -10,6 +10,7 @@ TagManager:
   - Note
   - music
   - ObjectsPlatform
+  - BossNote
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - 
   - 
   - No Collide
-  - 
+  - Player
   - 
   - 
   - 

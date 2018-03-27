@@ -11,15 +11,9 @@ public class notes : MonoBehaviour {
 
 	private Vector2 direction;
 
-	private UnityStandardAssets._2D.LevelManager levelManager;
-	private PlayerControl playerScript;
-
 	// Use this for initialization
 	void Start () {
 		myRigidbody = GetComponent<Rigidbody2D> ();
-
-		playerScript = FindObjectOfType<PlayerControl>();
-		levelManager = FindObjectOfType<UnityStandardAssets._2D.LevelManager>();
 	}
 
 	void FixedUpdate(){
