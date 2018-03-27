@@ -27,7 +27,6 @@ public class BossController : MonoBehaviour {
 	[SerializeField]
 	private GameObject player;
 
-
 	// Use this for initialization
 	void Start () {
 		//children = this.GetComponentsInChildren<GameObject>();
