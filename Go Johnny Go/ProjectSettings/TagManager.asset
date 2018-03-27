@@ -9,6 +9,7 @@ TagManager:
   - Border
   - Note
   - music
+  - ObjectsPlatform
   layers:
   - Default
   - TransparentFX
