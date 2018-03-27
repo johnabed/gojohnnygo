@@ -60114,21 +60114,11 @@ Prefab:
       propertyPath: MusicNoteSource
       value: 
       objectReference: {fileID: 882814282}
-    - target: {fileID: 60763037319240516, guid: 4cc5aea653cbda940979b59b6ccf868d,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114476736428272684, guid: 4cc5aea653cbda940979b59b6ccf868d,
         type: 2}
       propertyPath: CoinCollectSource
       value: 
       objectReference: {fileID: 798604719}
-    - target: {fileID: 114476736428272684, guid: 4cc5aea653cbda940979b59b6ccf868d,
-        type: 2}
-      propertyPath: CoinCollectClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 07d87becec4e84a70b3c1ce0a8913ca1, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4cc5aea653cbda940979b59b6ccf868d, type: 2}
   m_IsPrefabParent: 0
