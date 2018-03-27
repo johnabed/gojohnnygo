@@ -70220,6 +70220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 696304482}
+  songSrc: {fileID: 1535856147}
+  songClip: {fileID: 8300000, guid: 15fc4e5527878834cb863534aa623434, type: 3}
 --- !u!114 &1930860691
 MonoBehaviour:
   m_ObjectHideFlags: 0
