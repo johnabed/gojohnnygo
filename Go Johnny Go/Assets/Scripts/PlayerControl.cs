@@ -273,6 +273,7 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	public void takeDamage(int damage, bool knock_from_right) {
+		//insert player damage animation here
 		health -= damage;
 		if (health <= 0) {
 			playerDeath ();
@@ -284,7 +285,7 @@ public class PlayerControl : MonoBehaviour {
 
 	public void playerDeath() {
 		DeathSource.Play (); 
-
+		//insert player death animation here
 		UnityStandardAssets._2D.LevelManager levelManager = FindObjectOfType<UnityStandardAssets._2D.LevelManager>();
 		lives--;
 		if (lives == 0) {
