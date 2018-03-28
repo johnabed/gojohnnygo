@@ -11,7 +11,6 @@ public class ZombieBehaviour : MonoBehaviour {
 	public string Runner;
 
 	private PlayerControl playerScript;
-	private UnityStandardAssets._2D.LevelManager levelManager;
 
 	private string walkDirection = "right";
 	private bool flip = true;
@@ -32,7 +31,6 @@ public class ZombieBehaviour : MonoBehaviour {
 	{
 		animator = GetComponent<Animator> ();
 		playerScript = FindObjectOfType<PlayerControl>();
-		levelManager = FindObjectOfType<UnityStandardAssets._2D.LevelManager>();
 
 		// If smart zombie, increase attack (detection) range
 		if (Smart == "yes" || Smart == "y") {
@@ -85,18 +83,9 @@ public class ZombieBehaviour : MonoBehaviour {
 
 		// Player gets hit by sword attack if in range of sword
 		if (attack == true && timeBetweenAttacks > 0.5 && move == false) {
-			attack = false;			
-			playerScript.health -= damage; //player loses health based on zombie damage
-			if (playerScript.health <= 0) {
-				levelManager.RespawnPlayer ();
-			} else {
-				playerScript.knockbackCount = playerScript.knockbackLength;
-				if (Player.transform.position.x < transform.position.x) {
-					playerScript.knockFromRight = true;
-				} else {
-					playerScript.knockFromRight = false;
-				}
-			}
+			attack = false;
+			bool knockFromRight = Player.transform.position.x < transform.position.x ? true : false;
+			playerScript.takeDamage (damage, knockFromRight);
 		}
 
 		// Timer that prevents animations from being spammed 
@@ -170,17 +159,8 @@ public class ZombieBehaviour : MonoBehaviour {
 			ps.Stop ();
 			Destroy (other.gameObject,1);
 		} else if (other.tag == "Player" && health > 0) {
-			playerScript.health -= damage; //player loses health based on zombie damage
-			if (playerScript.health <= 0) {
-				levelManager.RespawnPlayer ();
-			} else {
-				playerScript.knockbackCount = playerScript.knockbackLength;
-				if (other.transform.position.x < transform.position.x) {
-					playerScript.knockFromRight = true;
-				} else {
-					playerScript.knockFromRight = false;
-				}
-			}
+			bool knockFromRight = other.transform.position.x < transform.position.x ? true : false;
+			playerScript.takeDamage (damage, knockFromRight);
 		}
 	}
 
