@@ -22,7 +22,6 @@ public class notes : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
 	public void Initialize(Vector2 direction){
@@ -31,5 +30,21 @@ public class notes : MonoBehaviour {
 
 	void OnBecameInvisible(){
 		Destroy (gameObject);
+	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		PlayerControl playerScript = FindObjectOfType<PlayerControl> ();
+		UnityStandardAssets._2D.LevelManager levelManager = FindObjectOfType<UnityStandardAssets._2D.LevelManager>();
+
+		if (other.tag == "Player" && playerScript.health > 0) {
+			playerScript.health -= 1; //player loses health based on zombie damage
+			if (playerScript.health <= 0) {
+				levelManager.RespawnPlayer ();
+			} else {
+				playerScript.knockFromRight = true;
+				playerScript.knockbackCount = playerScript.knockbackLength;
+			}
+			Destroy (gameObject);
+		}
 	}
 }
