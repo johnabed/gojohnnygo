@@ -54,7 +54,6 @@ public class notes : MonoBehaviour {
 			ps.Emit(300);
 			//Sets alpha to 0 so note is invisible
 			gameObject.GetComponent<SpriteRenderer> ().material.color = new Color (0,0,0,0);
-			gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, 0);
 			//Stops rendering particle simulator
 			ps.Stop ();
 			Destroy (gameObject.gameObject,1);
