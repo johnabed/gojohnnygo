@@ -16,8 +16,8 @@ public class CageChainsBehaviour : MonoBehaviour {
 	private GameObject chains;
 
 	void Start() {
-		bossHealth = 50;
-		bossMaxHealth = 50;
+		bossHealth = 100;
+		bossMaxHealth = 100;
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
