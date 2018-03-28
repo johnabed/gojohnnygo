@@ -13,16 +13,20 @@ namespace UnityStandardAssets._2D
 		public GameObject gameOverMenuUI;
 		private PlayerControl player;
 
+		public AudioClip DeathClip;
+		public AudioSource DeathSource;
 
         // Use this for initialization
         void Start()
         {
 			player = FindObjectOfType<PlayerControl>();
+			DeathSource.clip = DeathClip;
         }
 
         public void RespawnPlayer()
         {
             Debug.Log("Player: Respawn");
+			DeathSource.Play ();
 			//death animation here
 			player.lives--;
 			if (player.lives == 0) {
