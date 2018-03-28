@@ -10,14 +10,19 @@ public class CageChainsBehaviour : MonoBehaviour {
 	private int bossHealth;
 	private int bossMaxHealth;
 
+	private Vector3 cagePos;
+
 	[SerializeField]
 	private GameObject cage;
 	[SerializeField]
 	private GameObject chains;
+	[SerializeField]
+	private SceneFader fader;
 
 	void Start() {
 		bossHealth = 100;
 		bossMaxHealth = 100;
+		cagePos = cage.transform.position;
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
@@ -27,9 +32,10 @@ public class CageChainsBehaviour : MonoBehaviour {
 			bossHealth -= playerScript.guitarDmg;
 			bossHealthbar.fillAmount = (float)bossHealth / (float)bossMaxHealth;
 			if (bossHealth <= 0) {
-				cage.transform.position = new Vector3 (15, -2, 0); //temp solution to swinging issue
 				Debug.Log ("GAME WON");
-				Destroy (chains);
+				cage.transform.position = cagePos;
+				Destroy (chains, 1);
+				StartCoroutine (EndGame ());
 			}
 			//This code block emits particles upon hitting the zombie
 			ParticleSystem ps = other.GetComponentInChildren<ParticleSystem>();
@@ -41,6 +47,17 @@ public class CageChainsBehaviour : MonoBehaviour {
 			//Stops rendering particle simulator
 			ps.Stop ();
 			Destroy (other.gameObject,1);
+		}
+	}
+
+	//Called when Boss is defeated - aiden you would put your sequence here
+	IEnumerator EndGame()
+	{
+		while (true) {
+			yield return new WaitForSeconds(5.0f); //pauses function for 5 seconds
+			PlayerPrefs.DeleteKey ("Health"); //reset these fields to normal values
+			PlayerPrefs.DeleteKey ("Lives");
+			fader.FadeTo("Ending Scene"); //go to Ending Scene
 		}
 	}
 

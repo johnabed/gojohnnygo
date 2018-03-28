@@ -65,3 +65,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Opening Scene.unity
     guid: 852bae22abc1d457d81e7e547a8f6e3b
+  - enabled: 1
+    path: Assets/Ending Scene.unity
+    guid: 1ae5000039f7d854787966e7ba650821
