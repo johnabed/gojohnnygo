@@ -11,8 +11,11 @@ public class Pause_Menu : MonoBehaviour {
 	public AudioSource songSrc;
 	public AudioClip songClip;
 
+	private PlayerControl player;
+
 	void Start () {
 		songSrc.clip = songClip;
+		player = FindObjectOfType<PlayerControl>();
 	}
 
 	// Update is called once per frame
@@ -37,6 +40,7 @@ public class Pause_Menu : MonoBehaviour {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+		player.enabled = true;
     }
 
     void Pause()
@@ -44,6 +48,7 @@ public class Pause_Menu : MonoBehaviour {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+		player.enabled = false;
     }
 
     public void LoadMenu()
