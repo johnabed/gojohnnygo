@@ -44,7 +44,19 @@ public class notes : MonoBehaviour {
 				playerScript.knockFromRight = true;
 				playerScript.knockbackCount = playerScript.knockbackLength;
 			}
-			Destroy (gameObject);
+
+			//This code block emits particles upon hitting the zombie
+			ParticleSystem ps = gameObject.GetComponentInChildren<ParticleSystem>();
+			var sh = ps.shape;
+			sh.shapeType = ParticleSystemShapeType.Circle;
+			sh.rotation = new Vector3 (0, 0, 0);
+			sh.radius = 3;
+			ps.Emit(300);
+			//Sets alpha to 0 so note is invisible
+			gameObject.GetComponent<SpriteRenderer> ().material.color = new Color (0,0,0,0);
+			//Stops rendering particle simulator
+			ps.Stop ();
+			Destroy (gameObject.gameObject,1);
 		}
 	}
 }
