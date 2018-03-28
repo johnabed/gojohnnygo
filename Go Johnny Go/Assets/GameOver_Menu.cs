@@ -1,9 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameOver_Menu : MonoBehaviour {
+
+	[SerializeField]
+	private Image devil;
+	[SerializeField]
+	private GameObject gameOverMenuUI;
+
+	void Update () {
+		if (gameOverMenuUI.activeInHierarchy) {
+			float alpha = devil.color.a;
+			if (alpha < 1.00f) {
+				alpha += 0.002f;
+				devil.color = new Color (devil.color.r, devil.color.g, devil.color.b, alpha);
+			}
+		}
+	}
 
     public void LevelSelect()
     {
