@@ -27,6 +27,7 @@ public class CageChainsBehaviour : MonoBehaviour {
 			bossHealth -= playerScript.guitarDmg;
 			bossHealthbar.fillAmount = (float)bossHealth / (float)bossMaxHealth;
 			if (bossHealth <= 0) {
+				cage.transform.position = new Vector3 (15, -2, 0); //temp solution to swinging issue
 				Debug.Log ("GAME WON");
 				Destroy (chains);
 			}
