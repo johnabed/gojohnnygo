@@ -5,10 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameOver_Menu : MonoBehaviour {
 
-	// Update is called once per frame
-	void Update () {
-	}
-
     public void LevelSelect()
     {
 		Time.timeScale = 1f;
