@@ -7,25 +7,19 @@ namespace UnityStandardAssets._2D
     public class KillPlayer : MonoBehaviour
     {
 
-        public LevelManager levelManager;
+		public PlayerControl playerControl;
 
         // Use this for initialization
         void Start()
         {
-            levelManager = FindObjectOfType<LevelManager>();
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+			playerControl = FindObjectOfType<PlayerControl>();
         }
 
         void OnTriggerEnter2D(Collider2D other)
         {
             if (other.name == "Player")
             {
-                levelManager.RespawnPlayer();
+				playerControl.playerDeath ();
             }
         }
     }

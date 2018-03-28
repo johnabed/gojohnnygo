@@ -916,7 +916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0601340c904c50a48a9433809beb700f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 0}
+  playerControl: {fileID: 0}
 --- !u!61 &226267442
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2691,7 +2691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0601340c904c50a48a9433809beb700f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 0}
+  playerControl: {fileID: 0}
 --- !u!61 &635835161
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4650,7 +4650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0601340c904c50a48a9433809beb700f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 0}
+  playerControl: {fileID: 0}
 --- !u!61 &1175740000
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6462,6 +6462,16 @@ Prefab:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 114476736428272684, guid: 4cc5aea653cbda940979b59b6ccf868d,
+        type: 2}
+      propertyPath: DeathSource
+      value: 
+      objectReference: {fileID: 1880549109}
+    - target: {fileID: 114476736428272684, guid: 4cc5aea653cbda940979b59b6ccf868d,
+        type: 2}
+      propertyPath: DeathClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fbc8f2fa019384258bf5cbcef8229501, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4cc5aea653cbda940979b59b6ccf868d, type: 2}
   m_IsPrefabParent: 0

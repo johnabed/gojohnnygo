@@ -34,17 +34,10 @@ public class notes : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		PlayerControl playerScript = FindObjectOfType<PlayerControl> ();
-		UnityStandardAssets._2D.LevelManager levelManager = FindObjectOfType<UnityStandardAssets._2D.LevelManager>();
 
 		if (other.tag == "Player" && playerScript.health > 0) {
 			GetComponent<PolygonCollider2D>().enabled = false; //disable further collisions from BossNote
-			playerScript.health -= 1; //player loses health based on zombie damage
-			if (playerScript.health <= 0) {
-				levelManager.RespawnPlayer ();
-			} else {
-				playerScript.knockFromRight = true;
-				playerScript.knockbackCount = playerScript.knockbackLength;
-			}
+			playerScript.takeDamage(1, true);
 
 			//This code block emits particles upon hitting the zombie
 			ParticleSystem ps = gameObject.GetComponentInChildren<ParticleSystem>();

@@ -11938,7 +11938,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce29ce475a48fac459b1a0b46f8b9018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 0}
 --- !u!1 &320088780
 GameObject:
   m_ObjectHideFlags: 0
@@ -22848,7 +22847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0601340c904c50a48a9433809beb700f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 0}
+  playerControl: {fileID: 0}
 --- !u!61 &630835377
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31006,7 +31005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0601340c904c50a48a9433809beb700f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 0}
+  playerControl: {fileID: 0}
 --- !u!61 &854617795
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36477,7 +36476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0601340c904c50a48a9433809beb700f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 0}
+  playerControl: {fileID: 0}
 --- !u!61 &1006088422
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49934,7 +49933,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce29ce475a48fac459b1a0b46f8b9018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 0}
 --- !u!68 &1286163460
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -62656,6 +62654,16 @@ Prefab:
       propertyPath: HealthCollectClip
       value: 
       objectReference: {fileID: 8300000, guid: f0beaa0c6705a3848802defdaf17a694, type: 3}
+    - target: {fileID: 114476736428272684, guid: 4cc5aea653cbda940979b59b6ccf868d,
+        type: 2}
+      propertyPath: DeathSource
+      value: 
+      objectReference: {fileID: 1023081385}
+    - target: {fileID: 114476736428272684, guid: 4cc5aea653cbda940979b59b6ccf868d,
+        type: 2}
+      propertyPath: DeathClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fbc8f2fa019384258bf5cbcef8229501, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4cc5aea653cbda940979b59b6ccf868d, type: 2}
   m_IsPrefabParent: 0

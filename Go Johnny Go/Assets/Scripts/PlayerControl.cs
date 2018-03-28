@@ -68,6 +68,9 @@ public class PlayerControl : MonoBehaviour {
 	public AudioClip HealthCollectClip;
 	public AudioSource HealthCollectSource;
 
+	public AudioClip DeathClip;
+	public AudioSource DeathSource;
+
 
 	//Variables relating to recoil
 	public float shootTime;
@@ -106,6 +109,7 @@ public class PlayerControl : MonoBehaviour {
 		MusicNoteSource.clip = MusicNoteClip;
 		CoinCollectSource.clip = CoinCollectClip;
 		HealthCollectSource.clip = HealthCollectClip;
+		DeathSource.clip = DeathClip;
 	}
 	
 	// Update is called once per frame
@@ -266,5 +270,32 @@ public class PlayerControl : MonoBehaviour {
 		HealthCollectSource.Play ();
 		health = 10;
 		lives += amount;
+	}
+
+	public void takeDamage(int damage, bool knock_from_right) {
+		health -= damage;
+		if (health <= 0) {
+			playerDeath ();
+		} else {
+			knockFromRight = knock_from_right;
+			knockbackCount = knockbackLength;
+		}
+	}
+
+	public void playerDeath() {
+		DeathSource.Play (); 
+
+		UnityStandardAssets._2D.LevelManager levelManager = FindObjectOfType<UnityStandardAssets._2D.LevelManager>();
+		lives--;
+		if (lives == 0) {
+			PlayerPrefs.DeleteKey ("Lives");
+			PlayerPrefs.DeleteKey ("Health");
+			enabled = false; //disables player control
+			levelManager.GameOver ();
+
+		} else {
+			health = 10; //reset health
+			levelManager.RespawnPlayer ();
+		}
 	}
 }
