@@ -220,35 +220,44 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	public void recoil(){
-		//guitar.transform.rotation += Mathf.Sin(Mathf.Pi * Time.fixedTime);
+		float baseAngle, lowerAngle;
+		if (facingRight) {
+			baseAngle = 340f;
+			lowerAngle = 300f;
+		} else {
+			baseAngle = 20f;
+			lowerAngle = 60f;
+		}
 		float angle = guitar.transform.eulerAngles.z;
-
 		if (isRecoil) {
 			float increment = 8*Mathf.Cos(12*Mathf.PI/2 * (Time.time - shootTime));
-			//float increment = 4;
-			//print(guitar.transform.eulerAngles.z.ToString());
-			if (angle > 25 && angle < 50 && increment > 0)
+			if (facingRight && angle > 25 && angle < 50 && increment > 0)
+				increment = 0;
+			if (!facingRight && angle < 335 && angle > 310 && increment > 0)
 				increment = 0;
 			guitar.transform.Rotate(new Vector3 (0, 0, increment));
 			if (increment < -7.9){
 				isRecoil = false;
 			}
-			//guitar.transform.rotation = Quaternion.Euler (0, 0, transform.eulerAngles.z + increment);
-			//guitar.transform.rotation = Quaternion.Euler (0, 0, transform.eulerAngles.z + 1);
-			//isRecoil = false;
-			//if (guitar.transform.rotation.z > -25 && guitar.transform.rotation.z < -15) {
-			//	guitar.transform.rotation = Quaternion.Euler (0, 0, -20);
-			//	isRecoil = false;
-			//}
-
 		}
-		else if (angle != 340.0f) {
-			float difference = Mathf.Abs (Mathf.DeltaAngle (angle, 340));
+		else if (angle != baseAngle) {
+			print (angle.ToString ());
+			float difference = Mathf.Abs (Mathf.DeltaAngle (angle, baseAngle));
+			print (difference.ToString());
 			float sign;
-			if(angle < 340 && angle > 300)
-				sign = 1;
-			else
-				sign = -1;
+			if (facingRight) {
+				if (angle < baseAngle && angle > lowerAngle)
+					sign = 1;
+				else
+					sign = -1;
+			} else {
+				if (angle > baseAngle && angle < lowerAngle)
+					sign = 1;
+				else
+					sign = -1;
+			}
+			//if (!facingRight)
+			//	sign *= -1;
 			float increment = sign*difference;
 			guitar.transform.Rotate(new Vector3 (0, 0, increment));
 		}
