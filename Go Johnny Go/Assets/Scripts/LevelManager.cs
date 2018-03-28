@@ -20,12 +20,6 @@ namespace UnityStandardAssets._2D
 			player = FindObjectOfType<PlayerControl>();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
         public void RespawnPlayer()
         {
             Debug.Log("Player: Respawn");

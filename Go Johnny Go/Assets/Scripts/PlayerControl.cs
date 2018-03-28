@@ -65,6 +65,9 @@ public class PlayerControl : MonoBehaviour {
 	public AudioClip CoinCollectClip;
 	public AudioSource CoinCollectSource;
 
+	public AudioClip HealthCollectClip;
+	public AudioSource HealthCollectSource;
+
 	// Use this for initialization
 	void Start () {
 		myRigidbody = GetComponent<Rigidbody2D> ();
@@ -97,6 +100,7 @@ public class PlayerControl : MonoBehaviour {
 
 		MusicNoteSource.clip = MusicNoteClip;
 		CoinCollectSource.clip = CoinCollectClip;
+		HealthCollectSource.clip = HealthCollectClip;
 	}
 	
 	// Update is called once per frame
@@ -211,5 +215,10 @@ public class PlayerControl : MonoBehaviour {
 		CoinCollectSource.Play ();
 		coins += amount;
 		PlayerPrefs.SetInt ("MoneyAmount", coins);
+	}
+
+	public void healthCollect(int amount) {
+		HealthCollectSource.Play ();
+		lives += amount;
 	}
 }
