@@ -205,6 +205,10 @@ public class PlayerControl : MonoBehaviour {
 		Destroy (temp, 1.5f);
 	}
 
+	public void recoil(){
+		//guitar.transform.rotation += Mathf.Sin(Mathf.Pi * Time.fixedTime);
+	}
+
 	public void UpdateHUD(){
 		coinsText.text = "x" + coins.ToString ();
 		livesText.text = "x" + lives.ToString ();

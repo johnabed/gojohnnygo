@@ -157,6 +157,7 @@ public class ZombieBehaviour : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Note" && health > 0) {
 			TakeDamage (playerScript.guitarDmg); //default case
+			//This code block emits particles upon hitting the zombie
 			ParticleSystem ps = other.GetComponentInChildren<ParticleSystem>();
 			var sh = ps.shape;
 			sh.radius = 5;
