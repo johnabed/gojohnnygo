@@ -219,6 +219,7 @@ public class PlayerControl : MonoBehaviour {
 
 	public void healthCollect(int amount) {
 		HealthCollectSource.Play ();
+		health = 10;
 		lives += amount;
 	}
 }
