@@ -34,6 +34,5 @@ public class SpeechBubble : MonoBehaviour
     private void TurnOffMessage()
     {
         messageCanvas.enabled = false;
-        GetComponent<CircleCollider2D>().enabled = false;
     }
 }
