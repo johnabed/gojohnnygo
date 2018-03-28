@@ -18,6 +18,6 @@ public class KeyPress : MonoBehaviour {
 	}
 
 	void loadScene(){
-		SceneManager.LoadScene ("Main Menu");
+		SceneManager.LoadScene ("Opening Scene");
 	}
 }
