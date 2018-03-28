@@ -37,6 +37,7 @@ public class notes : MonoBehaviour {
 		UnityStandardAssets._2D.LevelManager levelManager = FindObjectOfType<UnityStandardAssets._2D.LevelManager>();
 
 		if (other.tag == "Player" && playerScript.health > 0) {
+			GetComponent<PolygonCollider2D>().enabled = false; //disable further collisions from BossNote
 			playerScript.health -= 1; //player loses health based on zombie damage
 			if (playerScript.health <= 0) {
 				levelManager.RespawnPlayer ();

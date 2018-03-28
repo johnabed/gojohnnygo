@@ -156,6 +156,7 @@ public class ZombieBehaviour : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Note" && health > 0) {
+			other.GetComponent<PolygonCollider2D>().enabled = false; //disable further collisions from Note
 			TakeDamage (playerScript.guitarDmg); //default case
 			//This code block emits particles upon hitting the zombie
 			ParticleSystem ps = other.GetComponentInChildren<ParticleSystem>();

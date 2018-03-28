@@ -28,6 +28,9 @@ public class BossController : MonoBehaviour {
 	[SerializeField]
 	private GameObject player;
 
+	public int health;
+	public int MAX_HEALTH;
+
 	// Use this for initialization
 	void Start () {
 		//children = this.GetComponentsInChildren<GameObject>();
@@ -41,6 +44,9 @@ public class BossController : MonoBehaviour {
 		initializeNotes ();
 		initialTime = Time.time;
 		noteReleaseTime *= noteTime;
+
+		health = 200;
+		MAX_HEALTH = 200;
 	}
 	
 	// Update is called once per frame

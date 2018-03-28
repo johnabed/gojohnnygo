@@ -1036,6 +1036,8 @@ MonoBehaviour:
   noteReleaseTime: 34.75
   chains: {fileID: 2080512728}
   player: {fileID: 605186543}
+  health: 0
+  MAX_HEALTH: 0
 --- !u!1 &261277277
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,7 +1665,9 @@ GameObject:
   - component: {fileID: 418359147}
   - component: {fileID: 418359146}
   - component: {fileID: 418359145}
+  - component: {fileID: 418359150}
   - component: {fileID: 418359144}
+  - component: {fileID: 418359149}
   m_Layer: 0
   m_Name: chainlinks (1)
   m_TagString: Untagged
@@ -1796,6 +1800,46 @@ Transform:
   m_Father: {fileID: 2080512729}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &418359149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 418359143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeff6155e0e194bb7bf0f28cc55635db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossHealthbar: {fileID: 1199733443}
+  cage: {fileID: 1962835277}
+  chains: {fileID: 2080512728}
+  fader: {fileID: 19841824}
+--- !u!61 &418359150
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 418359143}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.13, y: 1.7}
+    newSize: {x: 1.13, y: 1.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.81, y: 1.55}
+  m_EdgeRadius: 0
 --- !u!1 &439481976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,7 +1851,9 @@ GameObject:
   - component: {fileID: 439481980}
   - component: {fileID: 439481977}
   - component: {fileID: 439481979}
+  - component: {fileID: 439481982}
   - component: {fileID: 439481978}
+  - component: {fileID: 439481983}
   m_Layer: 0
   m_Name: chainlinks (4)
   m_TagString: Untagged
@@ -1940,6 +1986,46 @@ Transform:
   m_Father: {fileID: 2080512729}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &439481982
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 439481976}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.13, y: 1.7}
+    newSize: {x: 1.13, y: 1.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.81, y: 1.55}
+  m_EdgeRadius: 0
+--- !u!114 &439481983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 439481976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeff6155e0e194bb7bf0f28cc55635db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossHealthbar: {fileID: 1199733443}
+  cage: {fileID: 1962835277}
+  chains: {fileID: 2080512728}
+  fader: {fileID: 19841824}
 --- !u!1 &458589815
 GameObject:
   m_ObjectHideFlags: 0
@@ -2416,7 +2502,9 @@ GameObject:
   - component: {fileID: 596858113}
   - component: {fileID: 596858110}
   - component: {fileID: 596858112}
+  - component: {fileID: 596858115}
   - component: {fileID: 596858111}
+  - component: {fileID: 596858116}
   m_Layer: 0
   m_Name: chainlinks (3)
   m_TagString: Untagged
@@ -2549,6 +2637,46 @@ Transform:
   m_Father: {fileID: 2080512729}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &596858115
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 596858109}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.13, y: 1.7}
+    newSize: {x: 1.13, y: 1.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.81, y: 1.55}
+  m_EdgeRadius: 0
+--- !u!114 &596858116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 596858109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeff6155e0e194bb7bf0f28cc55635db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossHealthbar: {fileID: 1199733443}
+  cage: {fileID: 1962835277}
+  chains: {fileID: 2080512728}
+  fader: {fileID: 19841824}
 --- !u!1 &605186543 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1261683409291696, guid: 4cc5aea653cbda940979b59b6ccf868d,
@@ -2947,7 +3075,9 @@ GameObject:
   - component: {fileID: 709625947}
   - component: {fileID: 709625946}
   - component: {fileID: 709625945}
+  - component: {fileID: 709625949}
   - component: {fileID: 709625944}
+  - component: {fileID: 709625950}
   m_Layer: 0
   m_Name: chainlinks (8)
   m_TagString: Untagged
@@ -3080,6 +3210,46 @@ Transform:
   m_Father: {fileID: 2080512729}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &709625949
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 709625943}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.13, y: 1.7}
+    newSize: {x: 1.13, y: 1.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.81, y: 1.55}
+  m_EdgeRadius: 0
+--- !u!114 &709625950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 709625943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeff6155e0e194bb7bf0f28cc55635db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossHealthbar: {fileID: 1199733443}
+  cage: {fileID: 1962835277}
+  chains: {fileID: 2080512728}
+  fader: {fileID: 19841824}
 --- !u!1 &715436994
 GameObject:
   m_ObjectHideFlags: 0
@@ -3527,6 +3697,7 @@ GameObject:
   - component: {fileID: 778303351}
   - component: {fileID: 778303350}
   - component: {fileID: 778303349}
+  - component: {fileID: 778303354}
   m_Layer: 0
   m_Name: chainlinks (2)
   m_TagString: Untagged
@@ -3659,6 +3830,21 @@ Transform:
   m_Father: {fileID: 2080512729}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &778303354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 778303348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeff6155e0e194bb7bf0f28cc55635db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossHealthbar: {fileID: 1199733443}
+  cage: {fileID: 1962835277}
+  chains: {fileID: 2080512728}
+  fader: {fileID: 19841824}
 --- !u!1 &783309597
 GameObject:
   m_ObjectHideFlags: 0
@@ -4932,7 +5118,9 @@ GameObject:
   - component: {fileID: 991365187}
   - component: {fileID: 991365184}
   - component: {fileID: 991365186}
+  - component: {fileID: 991365189}
   - component: {fileID: 991365185}
+  - component: {fileID: 991365190}
   m_Layer: 0
   m_Name: chainlinks (6)
   m_TagString: Untagged
@@ -5065,6 +5253,46 @@ Transform:
   m_Father: {fileID: 2080512729}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &991365189
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 991365183}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.13, y: 1.7}
+    newSize: {x: 1.13, y: 1.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.81, y: 1.55}
+  m_EdgeRadius: 0
+--- !u!114 &991365190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 991365183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeff6155e0e194bb7bf0f28cc55635db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossHealthbar: {fileID: 1199733443}
+  cage: {fileID: 1962835277}
+  chains: {fileID: 2080512728}
+  fader: {fileID: 19841824}
 --- !u!1 &1005015946
 GameObject:
   m_ObjectHideFlags: 0
@@ -5358,7 +5586,9 @@ GameObject:
   - component: {fileID: 1076085081}
   - component: {fileID: 1076085078}
   - component: {fileID: 1076085080}
+  - component: {fileID: 1076085083}
   - component: {fileID: 1076085079}
+  - component: {fileID: 1076085084}
   m_Layer: 0
   m_Name: chainlinks (5)
   m_TagString: Untagged
@@ -5491,6 +5721,46 @@ Transform:
   m_Father: {fileID: 2080512729}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1076085083
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1076085077}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.13, y: 1.7}
+    newSize: {x: 1.13, y: 1.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.81, y: 1.55}
+  m_EdgeRadius: 0
+--- !u!114 &1076085084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1076085077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeff6155e0e194bb7bf0f28cc55635db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossHealthbar: {fileID: 1199733443}
+  cage: {fileID: 1962835277}
+  chains: {fileID: 2080512728}
+  fader: {fileID: 19841824}
 --- !u!1 &1076195758
 GameObject:
   m_ObjectHideFlags: 0
@@ -6244,6 +6514,8 @@ GameObject:
   - component: {fileID: 1298374112}
   - component: {fileID: 1298374110}
   - component: {fileID: 1298374111}
+  - component: {fileID: 1298374115}
+  - component: {fileID: 1298374114}
   m_Layer: 0
   m_Name: chainlinks
   m_TagString: Untagged
@@ -6353,6 +6625,46 @@ Transform:
   m_Father: {fileID: 2080512729}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1298374114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1298374109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeff6155e0e194bb7bf0f28cc55635db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossHealthbar: {fileID: 1199733443}
+  cage: {fileID: 1962835277}
+  chains: {fileID: 2080512728}
+  fader: {fileID: 19841824}
+--- !u!61 &1298374115
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1298374109}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.13, y: 1.7}
+    newSize: {x: 1.13, y: 1.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.81, y: 1.55}
+  m_EdgeRadius: 0
 --- !u!1 &1308297094
 GameObject:
   m_ObjectHideFlags: 0
@@ -8473,9 +8785,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2080512729}
-  - component: {fileID: 2080512731}
-  - component: {fileID: 2080512730}
-  - component: {fileID: 2080512732}
   m_Layer: 0
   m_Name: chain
   m_TagString: Untagged
@@ -8505,71 +8814,6 @@ Transform:
   m_Father: {fileID: 197972860}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2080512730
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2080512728}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &2080512731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2080512728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aeff6155e0e194bb7bf0f28cc55635db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossHealthbar: {fileID: 1199733443}
-  cage: {fileID: 1962835277}
-  chains: {fileID: 2080512728}
-  fader: {fileID: 19841824}
---- !u!61 &2080512732
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2080512728}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &2095970066
 GameObject:
   m_ObjectHideFlags: 0
@@ -8969,7 +9213,9 @@ GameObject:
   - component: {fileID: 2114511469}
   - component: {fileID: 2114511468}
   - component: {fileID: 2114511467}
+  - component: {fileID: 2114511471}
   - component: {fileID: 2114511466}
+  - component: {fileID: 2114511472}
   m_Layer: 0
   m_Name: chainlinks (7)
   m_TagString: Untagged
@@ -9102,6 +9348,46 @@ Transform:
   m_Father: {fileID: 2080512729}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2114511471
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2114511465}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.13, y: 1.7}
+    newSize: {x: 1.13, y: 1.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.81, y: 1.55}
+  m_EdgeRadius: 0
+--- !u!114 &2114511472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2114511465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeff6155e0e194bb7bf0f28cc55635db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossHealthbar: {fileID: 1199733443}
+  cage: {fileID: 1962835277}
+  chains: {fileID: 2080512728}
+  fader: {fileID: 19841824}
 --- !u!1 &2119059436
 GameObject:
   m_ObjectHideFlags: 0
