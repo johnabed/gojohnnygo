@@ -304,6 +304,7 @@ Transform:
   - {fileID: 715436995}
   - {fileID: 1308297096}
   - {fileID: 888986659}
+  - {fileID: 623820360}
   - {fileID: 396236111}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -1493,6 +1494,7 @@ GameObject:
   - component: {fileID: 396236111}
   - component: {fileID: 396236113}
   - component: {fileID: 396236112}
+  - component: {fileID: 396236114}
   m_Layer: 0
   m_Name: Astronaut
   m_TagString: Untagged
@@ -1507,12 +1509,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 396236110}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -9.8, y: -14.3, z: -35.7}
+  m_LocalPosition: {x: -9.64, y: -12.22, z: -35.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 623820360}
+  m_Children: []
   m_Father: {fileID: 42895568}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &396236112
 Animator:
@@ -1575,6 +1576,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &396236114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 396236110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c926ae276c0000a4184984354bfef07b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &418359143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,13 +2585,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 623820359}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.06, y: -12.01, z: -35.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 821517108}
-  m_Father: {fileID: 396236111}
-  m_RootOrder: 0
+  m_Father: {fileID: 42895568}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &623820361
 MonoBehaviour:
@@ -4088,7 +4100,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &879975614
 GameObject:
@@ -7762,6 +7774,46 @@ Prefab:
       propertyPath: HealthCollectClip
       value: 
       objectReference: {fileID: 8300000, guid: f0beaa0c6705a3848802defdaf17a694, type: 3}
+    - target: {fileID: 198860449809357882, guid: 4cc5aea653cbda940979b59b6ccf868d,
+        type: 2}
+      propertyPath: InitialModule.startSize.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198860449809357882, guid: 4cc5aea653cbda940979b59b6ccf868d,
+        type: 2}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198860449809357882, guid: 4cc5aea653cbda940979b59b6ccf868d,
+        type: 2}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198860449809357882, guid: 4cc5aea653cbda940979b59b6ccf868d,
+        type: 2}
+      propertyPath: randomSeed
+      value: 295595324
+      objectReference: {fileID: 0}
+    - target: {fileID: 198860449809357882, guid: 4cc5aea653cbda940979b59b6ccf868d,
+        type: 2}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 198860449809357882, guid: 4cc5aea653cbda940979b59b6ccf868d,
+        type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198860449809357882, guid: 4cc5aea653cbda940979b59b6ccf868d,
+        type: 2}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198860449809357882, guid: 4cc5aea653cbda940979b59b6ccf868d,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4cc5aea653cbda940979b59b6ccf868d, type: 2}
   m_IsPrefabParent: 0
