@@ -2,19 +2,21 @@
 ## README Documentation
 
 ### Features 
-- Player character (Johnny) 100% functionality
-- Ziggy Stardust Galaxy (Level 1) 100% completed
-- 1 of 10 levels completed for Demo version
-- In-game shop has 2 of 4 Guitars available for Demo version
-- Music score completed for Menu, Ziggy Stardust Galaxy (main level), Ziggy Stardust Galaxy (boss level)
+- Player: Johnny character is 100% functional
+- Zombies: Dumb and Smart zombies implemented with different attack styles and difficulties
+- Obstacles: Spikes and Acid implemented which hurt Johnny on interaction
+- Levels: 1 of 10 levels available in demo (Ziggy Stardust Galaxy)
+- Ziggy Stardust Galaxy: 100% completed with unique music score, environment, boss fight, and in-game cinematics
+- Shop: In-game shop 100% completed with 2 of 4 guitars available to purchase and equip
+- Upgrades: Guitars offer different damage boost and change the colour of Johnny's music projectiles
 - In-game heads-up-display 100% functional
 
 ### How to execute
-- Locate the built executable file (gojohnnygo-windows or gojohnnygo-macos)
-- Run built executable file with your chosen resolution (optimal from 1024x768 upwards in windows and fullscreen)
+- Locate the built executable file in the Build/ folder. Run gojohnnygo-windows or gojohnnygo-macos depending on operating system.
+- Choose resolution, graphics, fullscreen or windowed, and click play to start the game.
 
 ### How to play
-- Instructions are available in Options menu in-game, but repeated here for clarity
+> Controls available in Options menu in-game. Tooltips displayed in game to help novice players too!
 - Move left or right with left arrow and right arrow key
 - Jump with up arrow key
 - Shoot guitar notes with spacebar
