@@ -241,9 +241,7 @@ public class PlayerControl : MonoBehaviour {
 			}
 		}
 		else if (angle != baseAngle) {
-			print (angle.ToString ());
 			float difference = Mathf.Abs (Mathf.DeltaAngle (angle, baseAngle));
-			print (difference.ToString());
 			float sign;
 			if (facingRight) {
 				if (angle < baseAngle && angle > lowerAngle)
