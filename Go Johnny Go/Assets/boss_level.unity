@@ -968,11 +968,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 226267439}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.8196182, y: -14.3, z: 7.4068775}
+  m_LocalPosition: {x: -12.167326, y: -3.8568068, z: 6.9498463}
   m_LocalScale: {x: 200, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 1464676503}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &226267441
 MonoBehaviour:
@@ -1380,9 +1380,8 @@ MonoBehaviour:
   start_triggered: 0
   speed: 2
   childTransform: {fileID: 267159609}
-  transformB: {fileID: 603740764}
-  transformC: {fileID: 603740764}
-  transformD: {fileID: 603740764}
+  pickUpPoint: {fileID: 603740764}
+  flyToSpacePoint: {fileID: 274920952}
   fader: {fileID: 19841824}
 --- !u!60 &267159611
 PolygonCollider2D:
@@ -1393,7 +1392,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1733,6 +1732,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &274920951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 274920952}
+  m_Layer: 0
+  m_Name: spacePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &274920952
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 274920951}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -17.27, y: 34.95, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1464676503}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &324962819
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,7 +2342,6 @@ MonoBehaviour:
   cage: {fileID: 1962835277}
   bowieCraft: {fileID: 0}
   chains: {fileID: 2080512728}
-  fader: {fileID: 19841824}
 --- !u!61 &418359150
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2527,7 +2553,6 @@ MonoBehaviour:
   cage: {fileID: 1962835277}
   bowieCraft: {fileID: 0}
   chains: {fileID: 2080512728}
-  fader: {fileID: 19841824}
 --- !u!1 &458589815
 GameObject:
   m_ObjectHideFlags: 0
@@ -3246,7 +3271,6 @@ MonoBehaviour:
   cage: {fileID: 1962835277}
   bowieCraft: {fileID: 0}
   chains: {fileID: 2080512728}
-  fader: {fileID: 19841824}
 --- !u!1 &603740763
 GameObject:
   m_ObjectHideFlags: 0
@@ -3256,7 +3280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 603740764}
   m_Layer: 0
-  m_Name: vertical_location
+  m_Name: pickUpPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3273,7 +3297,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1464676503}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &605186543 stripped
 GameObject:
@@ -3476,7 +3500,7 @@ Transform:
   m_LocalScale: {x: 0.94778305, y: 26.937098, z: 1.1233023}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &639850850
 GameObject:
@@ -3533,9 +3557,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 4.5, y: -2}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 1.5
 --- !u!1 &654606529
 GameObject:
   m_ObjectHideFlags: 0
@@ -3784,7 +3808,6 @@ MonoBehaviour:
   cage: {fileID: 1962835277}
   bowieCraft: {fileID: 0}
   chains: {fileID: 2080512728}
-  fader: {fileID: 19841824}
 --- !u!1 &715436994
 GameObject:
   m_ObjectHideFlags: 0
@@ -4271,7 +4294,6 @@ MonoBehaviour:
   cage: {fileID: 1962835277}
   bowieCraft: {fileID: 0}
   chains: {fileID: 2080512728}
-  fader: {fileID: 19841824}
 --- !u!1 &810297203
 GameObject:
   m_ObjectHideFlags: 0
@@ -4962,7 +4984,6 @@ MonoBehaviour:
   cage: {fileID: 1962835277}
   bowieCraft: {fileID: 0}
   chains: {fileID: 2080512728}
-  fader: {fileID: 19841824}
 --- !u!1 &1005015946
 GameObject:
   m_ObjectHideFlags: 0
@@ -5431,7 +5452,6 @@ MonoBehaviour:
   cage: {fileID: 1962835277}
   bowieCraft: {fileID: 0}
   chains: {fileID: 2080512728}
-  fader: {fileID: 19841824}
 --- !u!1 &1175739998
 GameObject:
   m_ObjectHideFlags: 0
@@ -5497,7 +5517,7 @@ Transform:
   m_LocalScale: {x: 1.558056, y: 25.888662, z: 1.2010347}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1197805764
 GameObject:
@@ -6351,7 +6371,6 @@ MonoBehaviour:
   cage: {fileID: 1962835277}
   bowieCraft: {fileID: 0}
   chains: {fileID: 2080512728}
-  fader: {fileID: 19841824}
 --- !u!61 &1298374115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6608,9 +6627,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 267159609}
+  - {fileID: 226267440}
   - {fileID: 603740764}
+  - {fileID: 274920952}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1559063461 stripped
 GameObject:
@@ -6738,7 +6759,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4529384967330374, guid: c130ceeecda0a4531ac150c5238560fc, type: 2}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c130ceeecda0a4531ac150c5238560fc, type: 2}
@@ -7473,7 +7494,6 @@ MonoBehaviour:
   cage: {fileID: 1962835277}
   bowieCraft: {fileID: 267159608}
   chains: {fileID: 2080512728}
-  fader: {fileID: 19841824}
 --- !u!61 &1962835284
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8264,7 +8284,6 @@ MonoBehaviour:
   cage: {fileID: 1962835277}
   bowieCraft: {fileID: 0}
   chains: {fileID: 2080512728}
-  fader: {fileID: 19841824}
 --- !u!1 &2119059436
 GameObject:
   m_ObjectHideFlags: 0

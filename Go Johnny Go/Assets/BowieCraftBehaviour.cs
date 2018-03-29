@@ -5,11 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class BowieCraftBehaviour : MonoBehaviour {
 
-	private Vector3 posA;
-	private Vector3 posB;
-	private Vector3 posC;
-	private Vector3 posD;
-	private Vector3 nexPos;
+	private Vector3 spacePos;
+	private Vector3 pickUpPos;
 
 	public bool start_triggered = false; 
 	private bool player_triggered = false;
@@ -18,34 +15,32 @@ public class BowieCraftBehaviour : MonoBehaviour {
 	[SerializeField]
 	private Transform childTransform;
 	[SerializeField]
-	private Transform transformB;
+	private Transform pickUpPoint;
 	[SerializeField]
-	private Transform transformC;
+	private Transform flyToSpacePoint;
+
 	[SerializeField]
-	private Transform transformD;
+	private SceneFader fader;
+
 
 	private GameObject player;
 	private PlayerControl playerScript;
-	private bool moveWithPlatform = false;
-	public SceneFader fader;
+	private bool moveWithSpaceship = false;
+
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("start1");
-
-		posA = childTransform.position;
-		posB = transformB.position;
-		posC = transformC.position;
-		posD = transformD.position;
-		nexPos = posA;
 		player = GameObject.FindGameObjectWithTag ("Player");
+		spacePos = flyToSpacePoint.position;
+		pickUpPos = pickUpPoint.position;
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
 
 		if (other.tag == "Player") {
+			start_triggered = false;
 			player_triggered = true;
-			moveWithPlatform = true;
+			moveWithSpaceship = true;
 
 		}
 	}
@@ -63,8 +58,7 @@ public class BowieCraftBehaviour : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Player")) {
 			player.transform.parent = null;
 
-			nexPos = posA;
-			moveWithPlatform = false;
+			moveWithSpaceship = false;
 		}
 	}
 
@@ -76,30 +70,39 @@ public class BowieCraftBehaviour : MonoBehaviour {
 		if (start_triggered) { 
 			Move ();
 		}
+		if (player_triggered) {
+			FlyToSpace ();
+		}
+	}
+
+	private void FlyToSpace()
+	{
+		childTransform.position = Vector3.MoveTowards(childTransform.position, spacePos, speed * Time.deltaTime);
+
+		if (moveWithSpaceship) {
+			player.transform.position = Vector3.MoveTowards(childTransform.position, spacePos, speed * Time.deltaTime);
+
+		}
+			
+		StartCoroutine (fadeToEndGame ());
+
 	}
 
 	private void Move()
 	{
-		childTransform.position = Vector3.MoveTowards(childTransform.position, nexPos, speed * Time.deltaTime);
+		childTransform.position = Vector3.MoveTowards(childTransform.position, pickUpPos, speed * Time.deltaTime);
 
-		if (moveWithPlatform) {
-			player.transform.position = Vector3.MoveTowards(childTransform.position, nexPos, speed * Time.deltaTime);
 
-		}
-		if (Vector3.Distance(childTransform.position, nexPos) <= 0.1)
-		{
-			ChangeDestination();
-		}
 	}
 
-	private void ChangeDestination()
-	{
-		if (nexPos == posA)
-			nexPos = posB;
-		if (nexPos == posB)
-			nexPos = posC;
-		if (nexPos == posC)
-			nexPos = posD;
+	private IEnumerator fadeToEndGame() {
+		yield return new WaitForSeconds(10); //pauses function for 4 seconds
+		PlayerPrefs.DeleteKey ("Health"); //reset these fields to normal values
+		PlayerPrefs.DeleteKey ("Lives");
+		fader.FadeTo("Ending Scene"); //go to Ending Scene
+
 	}
+
+
 		
 }
