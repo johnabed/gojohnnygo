@@ -5,6 +5,7 @@ public class SpeechBubble : MonoBehaviour
     [SerializeField]
     Canvas messageCanvas;
 
+
     void Start()
     {
         messageCanvas.enabled = false;

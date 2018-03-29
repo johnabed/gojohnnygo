@@ -12,10 +12,13 @@ public class CageChainsBehaviour : MonoBehaviour {
 
 	[SerializeField]
 	private GameObject cage;
+
+	[SerializeField]
+	private GameObject bowieCraft;
+
 	[SerializeField]
 	private GameObject chains;
-	[SerializeField]
-	private SceneFader fader;
+
 
 	void Start() {
 		cagePos = cage.transform.position;
@@ -32,7 +35,14 @@ public class CageChainsBehaviour : MonoBehaviour {
 			if (bossScript.health <= 0) {
 				Debug.Log ("GAME WON");
 				cage.transform.position = cagePos;
+				foreach (BoxCollider2D coll in cage.GetComponents<BoxCollider2D> ()) {
+					coll.enabled = false;
+				}
+					
 				Destroy (chains, 1);
+				Destroy (cage, 4);
+				bossScript.enabled = false;
+				//StartCoroutine (SummonBowieCraft ());
 				StartCoroutine (EndGame ());
 			}
 			//This code block emits particles upon hitting the zombie
@@ -48,15 +58,19 @@ public class CageChainsBehaviour : MonoBehaviour {
 		}
 	}
 
-	//Called when Boss is defeated - aiden you would put your sequence here
+	//Called when Boss is defeated -
 	IEnumerator EndGame()
 	{
 		while (true) {
-			yield return new WaitForSeconds(3.0f); //pauses function for 3 seconds
-			PlayerPrefs.DeleteKey ("Health"); //reset these fields to normal values
-			PlayerPrefs.DeleteKey ("Lives");
-			fader.FadeTo("Ending Scene"); //go to Ending Scene
+			yield return new WaitForSeconds (3.0f); // wait before bowie craft comes up
+			bowieCraft.GetComponent<BowieCraftBehaviour>().start_triggered = true;
+
 		}
+			
 	}
+
+
+
+
 
 }
