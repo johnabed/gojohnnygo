@@ -96,7 +96,7 @@ public class BowieCraftBehaviour : MonoBehaviour {
 	}
 
 	private IEnumerator fadeToEndGame() {
-		yield return new WaitForSeconds(10); //pauses function for 4 seconds
+		yield return new WaitForSeconds(12); //pauses function for 12 seconds
 		PlayerPrefs.DeleteKey ("Health"); //reset these fields to normal values
 		PlayerPrefs.DeleteKey ("Lives");
 		fader.FadeTo("Ending Scene"); //go to Ending Scene
