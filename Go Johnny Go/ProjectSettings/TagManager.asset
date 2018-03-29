@@ -11,6 +11,7 @@ TagManager:
   - music
   - ObjectsPlatform
   - BossNote
+  - bowiecraft
   layers:
   - Default
   - TransparentFX
