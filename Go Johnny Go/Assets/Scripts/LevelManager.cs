@@ -26,6 +26,7 @@ namespace UnityStandardAssets._2D
 				                             currentCheckpoint.transform.position.y + 2, 
 				                             currentCheckpoint.transform.position.z);
 			player.transform.position = checkpointPosition;
+			player.activateGuitar();
 		}
 
 		public void GameOver ()

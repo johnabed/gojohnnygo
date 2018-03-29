@@ -283,18 +283,20 @@ public class PlayerControl : MonoBehaviour {
 
 	public void takeDamage(int damage, bool knock_from_right) {
 		//insert player damage animation here
+		myAnimator.SetTrigger("damage");
 		health -= damage;
 		if (health <= 0) {
-			playerDeath ();
+			playerDeath (true);
 		} else {
 			knockFromRight = knock_from_right;
 			knockbackCount = knockbackLength;
 		}
 	}
 
-	public void playerDeath() {
+	public void playerDeath(bool playAnimation = false) {
 		DeathSource.Play (); 
 		//insert player death animation here
+		myAnimator.SetBool("dead", true);
 		UnityStandardAssets._2D.LevelManager levelManager = FindObjectOfType<UnityStandardAssets._2D.LevelManager>();
 		lives--;
 		if (lives == 0) {
@@ -304,8 +306,20 @@ public class PlayerControl : MonoBehaviour {
 			levelManager.GameOver ();
 
 		} else {
-			health = 10; //reset health
-			levelManager.RespawnPlayer ();
+			if (playAnimation) {
+				guitar.SetActive (false);
+				myRigidbody.velocity = new Vector3 (0, 0, 0);
+				levelManager.Invoke ("RespawnPlayer", 1.0f);
+			}
+			else
+				levelManager.RespawnPlayer ();
 		}
+	}
+
+	public void activateGuitar(){
+		health = 10; //reset health
+		myAnimator.SetBool("dead", false);
+		guitar.SetActive (true);
+
 	}
 }
