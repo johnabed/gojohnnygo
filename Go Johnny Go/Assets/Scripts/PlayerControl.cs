@@ -68,6 +68,9 @@ public class PlayerControl : MonoBehaviour {
 	public AudioClip HealthCollectClip;
 	public AudioSource HealthCollectSource;
 
+	public AudioClip DeathClip;
+	public AudioSource DeathSource;
+
 
 	//Variables relating to recoil
 	public float shootTime;
@@ -106,6 +109,7 @@ public class PlayerControl : MonoBehaviour {
 		MusicNoteSource.clip = MusicNoteClip;
 		CoinCollectSource.clip = CoinCollectClip;
 		HealthCollectSource.clip = HealthCollectClip;
+		DeathSource.clip = DeathClip;
 	}
 	
 	// Update is called once per frame
@@ -216,35 +220,42 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	public void recoil(){
-		//guitar.transform.rotation += Mathf.Sin(Mathf.Pi * Time.fixedTime);
+		float baseAngle, lowerAngle;
+		if (facingRight) {
+			baseAngle = 340f;
+			lowerAngle = 300f;
+		} else {
+			baseAngle = 20f;
+			lowerAngle = 60f;
+		}
 		float angle = guitar.transform.eulerAngles.z;
-
 		if (isRecoil) {
 			float increment = 8*Mathf.Cos(12*Mathf.PI/2 * (Time.time - shootTime));
-			//float increment = 4;
-			//print(guitar.transform.eulerAngles.z.ToString());
-			if (angle > 25 && angle < 50 && increment > 0)
+			if (facingRight && angle > 25 && angle < 50 && increment > 0)
+				increment = 0;
+			if (!facingRight && angle < 335 && angle > 310 && increment > 0)
 				increment = 0;
 			guitar.transform.Rotate(new Vector3 (0, 0, increment));
 			if (increment < -7.9){
 				isRecoil = false;
 			}
-			//guitar.transform.rotation = Quaternion.Euler (0, 0, transform.eulerAngles.z + increment);
-			//guitar.transform.rotation = Quaternion.Euler (0, 0, transform.eulerAngles.z + 1);
-			//isRecoil = false;
-			//if (guitar.transform.rotation.z > -25 && guitar.transform.rotation.z < -15) {
-			//	guitar.transform.rotation = Quaternion.Euler (0, 0, -20);
-			//	isRecoil = false;
-			//}
-
 		}
-		else if (angle != 340.0f) {
-			float difference = Mathf.Abs (Mathf.DeltaAngle (angle, 340));
+		else if (angle != baseAngle) {
+			float difference = Mathf.Abs (Mathf.DeltaAngle (angle, baseAngle));
 			float sign;
-			if(angle < 340 && angle > 300)
-				sign = 1;
-			else
-				sign = -1;
+			if (facingRight) {
+				if (angle < baseAngle && angle > lowerAngle)
+					sign = 1;
+				else
+					sign = -1;
+			} else {
+				if (angle > baseAngle && angle < lowerAngle)
+					sign = 1;
+				else
+					sign = -1;
+			}
+			//if (!facingRight)
+			//	sign *= -1;
 			float increment = sign*difference;
 			guitar.transform.Rotate(new Vector3 (0, 0, increment));
 		}
@@ -266,5 +277,47 @@ public class PlayerControl : MonoBehaviour {
 		HealthCollectSource.Play ();
 		health = 10;
 		lives += amount;
+	}
+
+	public void takeDamage(int damage, bool knock_from_right) {
+		//insert player damage animation here
+		myAnimator.SetTrigger("damage");
+		health -= damage;
+		if (health <= 0) {
+			playerDeath (true);
+		} else {
+			knockFromRight = knock_from_right;
+			knockbackCount = knockbackLength;
+		}
+	}
+
+	public void playerDeath(bool playAnimation = false) {
+		DeathSource.Play (); 
+		//insert player death animation here
+		myAnimator.SetBool("dead", true);
+		UnityStandardAssets._2D.LevelManager levelManager = FindObjectOfType<UnityStandardAssets._2D.LevelManager>();
+		lives--;
+		if (lives == 0) {
+			PlayerPrefs.DeleteKey ("Lives");
+			PlayerPrefs.DeleteKey ("Health");
+			enabled = false; //disables player control
+			levelManager.GameOver ();
+
+		} else {
+			if (playAnimation) {
+				guitar.SetActive (false);
+				myRigidbody.velocity = new Vector3 (0, 0, 0);
+				levelManager.Invoke ("RespawnPlayer", 1.0f);
+			}
+			else
+				levelManager.RespawnPlayer ();
+		}
+	}
+
+	public void activateGuitar(){
+		health = 10; //reset health
+		myAnimator.SetBool("dead", false);
+		guitar.SetActive (true);
+
 	}
 }
