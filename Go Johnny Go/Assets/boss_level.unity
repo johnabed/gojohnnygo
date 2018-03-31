@@ -1105,7 +1105,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 45be9caba27de41e9bfcaa4d47ec32a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2715,7 +2715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossHealthbar: {fileID: 1199733443}
   cage: {fileID: 1962835277}
-  bowieCraft: {fileID: 0}
+  bowieCraft: {fileID: 267159608}
   chains: {fileID: 2080512728}
 --- !u!61 &418359150
 BoxCollider2D:
@@ -2926,7 +2926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossHealthbar: {fileID: 1199733443}
   cage: {fileID: 1962835277}
-  bowieCraft: {fileID: 0}
+  bowieCraft: {fileID: 267159608}
   chains: {fileID: 2080512728}
 --- !u!1 &458589815
 GameObject:
@@ -3644,7 +3644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossHealthbar: {fileID: 1199733443}
   cage: {fileID: 1962835277}
-  bowieCraft: {fileID: 0}
+  bowieCraft: {fileID: 267159608}
   chains: {fileID: 2080512728}
 --- !u!1 &603740763
 GameObject:
@@ -4227,7 +4227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossHealthbar: {fileID: 1199733443}
   cage: {fileID: 1962835277}
-  bowieCraft: {fileID: 0}
+  bowieCraft: {fileID: 267159608}
   chains: {fileID: 2080512728}
 --- !u!1 &715436994
 GameObject:
@@ -4713,7 +4713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossHealthbar: {fileID: 1199733443}
   cage: {fileID: 1962835277}
-  bowieCraft: {fileID: 0}
+  bowieCraft: {fileID: 267159608}
   chains: {fileID: 2080512728}
 --- !u!1 &810297203
 GameObject:
@@ -5408,7 +5408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossHealthbar: {fileID: 1199733443}
   cage: {fileID: 1962835277}
-  bowieCraft: {fileID: 0}
+  bowieCraft: {fileID: 267159608}
   chains: {fileID: 2080512728}
 --- !u!1 &1005015946
 GameObject:
@@ -5948,7 +5948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossHealthbar: {fileID: 1199733443}
   cage: {fileID: 1962835277}
-  bowieCraft: {fileID: 0}
+  bowieCraft: {fileID: 267159608}
   chains: {fileID: 2080512728}
 --- !u!1 &1175739998
 GameObject:
@@ -6079,7 +6079,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 45be9caba27de41e9bfcaa4d47ec32a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6425,7 +6425,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 45be9caba27de41e9bfcaa4d47ec32a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6867,7 +6867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossHealthbar: {fileID: 1199733443}
   cage: {fileID: 1962835277}
-  bowieCraft: {fileID: 0}
+  bowieCraft: {fileID: 267159608}
   chains: {fileID: 2080512728}
 --- !u!61 &1298374115
 BoxCollider2D:
@@ -7445,7 +7445,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 45be9caba27de41e9bfcaa4d47ec32a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7619,7 +7619,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 45be9caba27de41e9bfcaa4d47ec32a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8596,7 +8596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossHealthbar: {fileID: 1199733443}
   cage: {fileID: 1962835277}
-  bowieCraft: {fileID: 0}
+  bowieCraft: {fileID: 267159608}
   chains: {fileID: 2080512728}
 --- !u!1 &2119059436
 GameObject:

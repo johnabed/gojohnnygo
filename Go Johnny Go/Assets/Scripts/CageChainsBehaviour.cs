@@ -39,11 +39,13 @@ public class CageChainsBehaviour : MonoBehaviour {
 					coll.enabled = false;
 				}
 					
-				Destroy (chains, 1);
-				Destroy (cage, 4);
+				//Destroy (chains, 1);
+				chains.SetActive(false);
+				Destroy (cage, 10);
 				bossScript.enabled = false;
 				//StartCoroutine (SummonBowieCraft ());
-				StartCoroutine (EndGame ());
+				Invoke("triggerBowieCraft", 3);
+				//StartCoroutine (EndGame ());
 			}
 			//This code block emits particles upon hitting the zombie
 			ParticleSystem ps = other.GetComponentInChildren<ParticleSystem>();
@@ -62,8 +64,17 @@ public class CageChainsBehaviour : MonoBehaviour {
 	IEnumerator EndGame()
 	{
 		while (true) {
+			Debug.Log ("before wait");
 			yield return new WaitForSeconds (3.0f); // wait before bowie craft comes up
-			bowieCraft.GetComponent<BowieCraftBehaviour>().start_triggered = true;
+			Debug.Log ("After wait");
+			bowieCraft.GetComponent<BowieCraftBehaviour> ().start_triggered = true;
+
+		}
+
+	}
+	private void triggerBowieCraft() {
+
+		bowieCraft.GetComponent<BowieCraftBehaviour> ().start_triggered = true;
 
 		}
 			
@@ -72,5 +83,3 @@ public class CageChainsBehaviour : MonoBehaviour {
 
 
 
-
-}
